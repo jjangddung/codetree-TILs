@@ -8,16 +8,19 @@ num_list = list(map(int, input().split()))
 
 num_list.sort()
 
-a_list= []
-b_list= []
+p_list = []
+q_list = []
 
-a_list.append(num_list[0])
-b_list.append(num_list[1])
 
-for i in range(2,2*N) :
-    if sum(a_list) > sum(b_list) :
-        a_list.append(i)
+for i in range(N) :
+    if i % 2 == 0 :
+        p_list.append(num_list[i])
+        if len(p_list) != N :
+            p_list.append(num_list[2*N-1-i])
     else :
-        b_list.append(i)
+        q_list.append(num_list[i])
+        if len(q_list) != N :
+            q_list.append(num_list[2*N-1-i])
 
-print(max(sum(a_list),sum(b_list)))
+result =max(sum(p_list),sum(q_list))
+print(result)
