@@ -2,7 +2,7 @@ import sys
 
 input = sys.stdin.readline
 
-string = str(input())
+string = str(input().rstrip())
 
 string = sorted(string)
 
