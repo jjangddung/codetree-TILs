@@ -23,6 +23,5 @@ for agent in agents :
     # print(agent.n, agent.g)
     if agent.g < mini :
         mini = agent.g
-        print(mini)
         name = agent.n
 print(name, mini)
