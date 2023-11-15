@@ -13,9 +13,9 @@ class Total() :
         self.kor  = int(Tuple[1])
         self.eng  = int(Tuple[2])
         self.math = int(Tuple[3])
-        self.grade()
+        self.grading()
     
-    def grade(self) :
+    def grading(self) :
         self.grade = int(self.kor + self.eng + self.math)
 
 
