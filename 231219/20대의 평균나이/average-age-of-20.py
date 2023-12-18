@@ -10,7 +10,7 @@ while True :
     chance += 1
 
     sum += N
-    if  N >= 30 :
+    if  N < 20 or N > 29 :
         sum -= N
         chance -=1
         result = sum / chance
