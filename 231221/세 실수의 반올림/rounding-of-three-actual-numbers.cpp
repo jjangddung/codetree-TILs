@@ -14,9 +14,7 @@ int main() {
     cout << fixed ;
     cout.precision(3) ;
 
-    cout <<  a;
-    cout <<  b;
-    cout << c;
+    cout << a << endl << b << endl << c ;
 
     // 여기에 코드를 작성해주세요.
     return 0;
