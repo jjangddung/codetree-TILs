@@ -10,7 +10,7 @@ int main() {
 
     cin >>a_e >>a_m >>b_m >> b_e ;
 
-    if (a_m > b_m) {
+    if (a_m >= b_m) {
         cout << "A" ;
     }
     else if (a_m == b_m) {
