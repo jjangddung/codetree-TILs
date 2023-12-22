@@ -10,13 +10,13 @@ int main() {
 
     int a ;
     cin >> a;
-    
+
     if (a>=3 && a<=5) {
         cout << "Spring";
     }
 
     else if (a>=6 && a<=8){
-        cout <<"Summner";
+        cout <<"Summer";
     }
 
     else if (a>=9 && a<=11){
