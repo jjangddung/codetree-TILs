@@ -14,7 +14,7 @@ int main() {
     }
 
     else if(alpha == "A") {
-        cout << "Exellent" ;
+        cout << "Excellent" ;
     }
     else if(alpha == "B") {
         cout << "Good" ;
