@@ -14,7 +14,7 @@ int main() {
                 cout << "10000";
             }
             else {
-                cout <<"50000";
+                cout <<"5000";
             }
         }
         cout << "0";
