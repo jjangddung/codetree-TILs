@@ -11,7 +11,7 @@ int main() {
     if (m >= 90) {
         if(f>=90) {
             if (f>=95) {
-                cout << "100000";
+                cout << "10000";
             }
             else {
                 cout <<"50000";
