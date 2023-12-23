@@ -32,7 +32,7 @@ int main() {
                 cout <<"28";
             }
             else  {
-                cout <<"30";
+                cout <<"31";
             }
         }
         
