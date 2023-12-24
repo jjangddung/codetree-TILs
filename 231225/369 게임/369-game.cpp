@@ -20,7 +20,7 @@ int main() {
         }
 
         else {
-            if (g==3 or g==6 or  g== 9  or t % 3== 0) {
+            if (g==3 or g==6 or  g== 9  or t == 3 or t == 6 or t== 9 ) {
                 cout << 0 << " ";
             }
             else {
