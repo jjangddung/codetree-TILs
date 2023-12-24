@@ -16,7 +16,7 @@ int main() {
 
 
     for (int i = 1 ; i <= n ; i++) {
-        if (i%2 == 0 and (i%3 != 0 or i%12 != 0)) {
+        if (i%2 == 0 and (i%3 != 0 and i%12 != 0)) {
             cnt_1 +=1 ;
 
         }
