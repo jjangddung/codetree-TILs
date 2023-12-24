@@ -6,13 +6,22 @@ using namespace std;
 
 
 int main() {
-    int a,b ;
+    int a,b,min,max ;
 
     cin >> a >> b;
 
     int result = 0 ;
 
-    for (int i = a ; i <= b ; i++) {
+    if (a< b) {
+        min = a;
+        max = b;
+    }
+    else {
+        min = b ;
+        max = a;
+    }
+
+    for (int i = min ; i <= max ; i++) {
         
         if (i%5 ==0) {
             result +=i ;
@@ -20,6 +29,5 @@ int main() {
     }
 
     cout << result ;
-    // 여기에 코드를 작성해주세요.
     return 0;
 }
