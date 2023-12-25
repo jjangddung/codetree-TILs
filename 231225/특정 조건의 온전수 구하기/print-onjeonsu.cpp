@@ -15,16 +15,8 @@ int main() {
             continue;
         }
 
-        else if (i == 5) {
-            continue ;
-        }
-
-        else if (i> 10 and (i%10)==5) {
+        else if ( (i%10)==5) {
             continue;
-        }
-
-        else if( i > 100 and (i%100) == 5) {
-            continue ;
         }
 
         else if (i% 3 == 0 and i%9 != 0) {
