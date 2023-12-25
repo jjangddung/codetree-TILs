@@ -30,11 +30,16 @@ int main() {
         
         else if (q_arr[0]== 2) {
             cin >> q_arr[1];
+            int cnt = 0 ;
             for (int k = 0 ; k <n ; k ++) {
                 if (arr[k]== q_arr[1]) {
                     cout << k+1  << endl ;
+                    cnt += 1;
                     break;
                 }
+            }
+            if (cnt == 0) {
+                cout << 0 << endl ;
             }
         }
 
