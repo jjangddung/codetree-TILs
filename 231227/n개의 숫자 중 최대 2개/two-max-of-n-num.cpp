@@ -24,7 +24,7 @@ int main() {
             maxi = arr[i] ;
         }
         else  {
-            if (old < arr[i] and arr[i] < maxi ) {
+            if (old < arr[i] and arr[i] <= maxi ) {
                 old = arr[i] ;
             }
         }
