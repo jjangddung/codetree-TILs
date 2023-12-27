@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ int main() {
     } 
 
     int maxi = arr[0] ;
-    int old = maxi ;
+    int old = INT_MIN ;
 
 
     for (int i = 0 ; i <n ; i ++) {
