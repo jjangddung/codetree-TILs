@@ -16,10 +16,11 @@ int main() {
         if (i%c == 0) {
             cout << "NO" ;
             cnt +=1 ;
+            break;
         }
     }
 
-    if (cnt != 0) {
+    if (cnt == 0) {
         cout << "YES" ;
     }
     // 여기에 코드를 작성해주세요.
