@@ -17,6 +17,10 @@ int main() {
 
     for (int i = 0 ; i <k -1 ; i ++) {
         if (str[i] != p){
+            if (i ==k-2) {
+                cout << "No";
+                break;
+            }
             continue;
         }
 
