@@ -15,9 +15,9 @@ int main() {
     int k = str.length();
 
 
-    for (int i = 0 ; i <k -1 ; i ++) {
+    for (int i = 0 ; i <=k -1 ; i ++) {
         if (str[i] != p){
-            if (i ==k-2) {
+            if (i ==k-1) {
                 cout << "No";
                 break;
             }
