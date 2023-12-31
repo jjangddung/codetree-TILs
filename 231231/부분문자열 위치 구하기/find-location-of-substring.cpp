@@ -20,7 +20,7 @@ int main() {
             break;
         }
 
-        if (i == len-solv_len+1) {
+        if (i == len-solv_len) {
             cout << -1 ;
         }
     }
