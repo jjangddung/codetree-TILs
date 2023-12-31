@@ -19,6 +19,10 @@ int main() {
             cout << i ;
             break;
         }
+
+        if (i == len-solv_len+1) {
+            cout << -1 ;
+        }
     }
     return 0;
 }
