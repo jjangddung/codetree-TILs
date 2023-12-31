@@ -22,7 +22,7 @@ int main() {
 
         }
 
-        if (str.substr(i,2)== "ee") {
+        if (str.substr(i,2)== "eb") {
             cnt_2 +=1 ;
 
         }
