@@ -13,8 +13,12 @@ int main() {
 
     cin >> s;
     cin >> q ;
+    
 
     int len = s.length();
+
+    string p ;
+
 
 
     for (int i = 0 ; i < q ; i ++) {
@@ -34,10 +38,13 @@ int main() {
         }
 
         else {
-            for (int j = len -1 ; j >=0 ; j -- ){
-                cout << s[j];
+            p = s;
+            for (int j = 0 ; j <= len-1 ; j++ ){
+
+                p[j] = s[len-1-j];
+
             }
-            cout<< endl ;
+            cout<< p << endl ;
         }
     }
     return 0;
