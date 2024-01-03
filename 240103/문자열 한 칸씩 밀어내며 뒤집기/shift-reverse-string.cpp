@@ -45,6 +45,7 @@ int main() {
 
             }
             cout<< p << endl ;
+            s = p ;
         }
     }
     return 0;
