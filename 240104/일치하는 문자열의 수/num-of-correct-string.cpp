@@ -16,7 +16,7 @@ int main() {
     string str;
     int cnt = 0 ;
 
-    for (int i = 0 ; i < 3 ; i ++) {
+    for (int i = 0 ; i < n ; i ++) {
         cin >> str;
         if (str==s) {
             cnt+=1;
