@@ -14,7 +14,7 @@ arr_2 = [list(map(int, input().split())) for _ in range(n)]
 
 
 
-arr_3 = [[1 for j in range(n)] for i in range(m)]
+arr_3 = [[1 for j in range(m)] for i in range(n)]
 
 for i in range(n) :
     for j in range(m) :
