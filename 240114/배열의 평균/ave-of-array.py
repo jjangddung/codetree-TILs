@@ -26,4 +26,6 @@ for k in list_3 :
 
 
 print()
-print((sum_1+sum_2)/8)
+result = (sum_1+sum_2)/8
+
+print(round(result,1))
