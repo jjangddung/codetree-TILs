@@ -5,7 +5,7 @@ input = sys.stdin.readline
 
 n = int(input())
 
-cnt = 5
+cnt = n
 
 list_2 = []
 for i in range(1,n+1) :
