@@ -15,7 +15,12 @@ int main() {
     for (int i = 1 ; i <= n ;i++){
         for (int j =1 ; j <= i ; j ++) {
             cout << p ;
-            p++ ;
+            if (p == 'Z') {
+                p = 'A';
+            }
+            else {
+                p++;
+            }
             
         }
         cout << endl ;
