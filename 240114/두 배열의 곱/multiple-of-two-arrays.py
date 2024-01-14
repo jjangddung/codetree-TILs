@@ -3,7 +3,7 @@ import sys
 
 arr_1 = [list(map(int, input().split())) for _ in range(3)]
 
-t = input()
+input()
 
 arr_2 = [list(map(int, input().split())) for _ in range(3)]
 
