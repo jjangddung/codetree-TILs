@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 sum = 0
 
-arr = input()
+arr = input().rstrip()
 
 length = int(len(arr))
 
