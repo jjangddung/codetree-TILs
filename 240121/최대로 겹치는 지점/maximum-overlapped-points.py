@@ -3,10 +3,10 @@ import sys
 input = sys.stdin.readline
 
 
-n = int(input().rstrip())
+n = int(input())
 
 
-arr = [0 for _ in range(1,101)]
+arr = [0 for _ in range(0,101)]
 
 for _ in range(n) :
     k,l = map(int, input().split())
