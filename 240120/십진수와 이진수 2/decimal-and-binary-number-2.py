@@ -9,8 +9,6 @@ arr = input()
 length = int(len(arr))
 
 
-sum = 0
-
 for i in range(length) :
     multiple = 2**(length-1-i)
     sum += int(arr[i]) * multiple
