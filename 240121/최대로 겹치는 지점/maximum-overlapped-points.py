@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.readline
 
 
-n = int(input())
+n = int(input().rstrip())
 
 
 arr = [0 for _ in range(1,101)]
