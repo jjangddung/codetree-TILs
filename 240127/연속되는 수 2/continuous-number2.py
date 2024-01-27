@@ -16,6 +16,7 @@ for _  in range(n) :
 
 
 cnt_list = [] 
+maximum = 1
 for i in range(n) :
     cnt = 0
     for j in range(i,n) :
@@ -23,12 +24,7 @@ for i in range(n) :
             cnt +=1 
         
         else :
-            cnt_list.append(cnt)
+            maximum = max(cnt,maximum)
             break
 
-
-if len(cnt_list) == 0 :
-    print(1)
-
-else :
-    print(max(cnt_list))
+print(maximum)
