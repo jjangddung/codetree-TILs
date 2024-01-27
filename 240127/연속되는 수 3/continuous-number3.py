@@ -48,5 +48,8 @@ for i in range(n) :
                 break
 
 
+if len(cnt_list) == 0 :
+    print(1)
 
-print(max(cnt_list))
+else :
+    print(max(cnt_list))
