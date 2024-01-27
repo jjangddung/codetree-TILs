@@ -44,7 +44,7 @@ for j in range(y_1+1000,y_2+1000) :
 
     
 
-x_length  = len(x_list)
-y_length = len(y_list)
+x_length  = max(x_list) - min(x_list) +1
+y_length = max(y_list) - min(y_list) +1
 
 print(x_length*y_length)
