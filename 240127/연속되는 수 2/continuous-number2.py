@@ -15,12 +15,17 @@ for _ in range(n) :
 
 
 
-cnt = 1
 
-for i in range(1,n) :
-    if arr[i] != arr[i-1] :
-        cnt +=1
+cnt_list = []
+
+for i in range(n) :
+    cnt = 0
+    for j in range(i,n) :
+        if arr[i] == arr[j] :
+            cnt += 1
+        else :
+            cnt_list.append(cnt)
+            break
 
 
-
-print(cnt)
+print(max(cnt_list))
