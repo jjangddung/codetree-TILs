@@ -15,7 +15,7 @@ for _  in range(n) :
     arr.append(k)
 
 
-cnt_list = [0] 
+cnt_list = [] 
 for i in range(n) :
     cnt = 0
     for j in range(i,n) :
