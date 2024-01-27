@@ -43,8 +43,16 @@ for j in range(y_1+1000,y_2+1000) :
         y_list.append(j)
 
     
+if len(x_list) != 0 :
+    x_length  = max(x_list) - min(x_list) +1
+else :
+    x_length = 0
 
-x_length  = max(x_list) - min(x_list) +1
-y_length = max(y_list) - min(y_list) +1
+if len(y_list) != 0 :
+    y_length = max(y_list) - min(y_list) +1
+
+else :
+    y_length = 0
+
 
 print(x_length*y_length)
