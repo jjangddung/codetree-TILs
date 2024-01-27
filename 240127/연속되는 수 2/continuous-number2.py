@@ -22,6 +22,9 @@ for i in range(n) :
     for j in range(i,n) :
         if arr[i] == arr[j] :
             cnt +=1 
+            if j  == n- 1:
+                maximum = max(cnt, maximum)
+                
         
         else :
             maximum = max(cnt,maximum)
