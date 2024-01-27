@@ -6,26 +6,26 @@ input = sys.stdin.readline
 n = int(input())
 
 
-arr = []
 
-for _ in range(n) :
+
+arr =[]
+for _  in range(n) :
     k = int(input())
 
     arr.append(k)
 
 
-
-
-cnt_list = []
-
+cnt_list = [0] 
 for i in range(n) :
     cnt = 0
     for j in range(i,n) :
         if arr[i] == arr[j] :
-            cnt += 1
+            cnt +=1 
+        
         else :
             cnt_list.append(cnt)
             break
+
 
 
 print(max(cnt_list))
