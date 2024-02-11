@@ -8,48 +8,45 @@ n = int(input())
 
 
 
-arr =[]
-for _  in range(n) :
-    k = int(input())
-
-    arr.append(k)
+n_list = [int(input()) for _ in range(n)]
 
 
-cnt_list = []
 
+length = 0
+maximum = 0
+value =  False
+
+def checking(t) :
+    if t < 0 :
+        return False
+    
+    else :
+        return True
+
+        
 
 for i in range(n) :
-    s = arr[i]
-    cnt = 0
-    if  s < 0 :
-        s = -1
+    length = 0
+
+    if n_list[i] < 0 :
+        value = False
     else :
-        s = 1
-   
+
+        value = True
+
+    
+
     for j in range(i,n) :
-        if arr[j] != abs(arr[j]) :
-            if s == -1 :
-                cnt +=1
-                if j == n :
-                    cnt_list.append(cnt)
-                    
-            else :
-                cnt_list.append(cnt)
-                break
+        k = n_list[j]
+
+        if checking(k) == value :
+            length +=1
+            if j == n-1 :
+                maximum = max(maximum,length)
         
+
         else :
-            if s != -1 :
-                cnt +=1
-                if j  == n  :
-                    cnt_list.append(cnt)
-            
-            else :
-                cnt_list.append(cnt)
-                break
+            maximum = max(maximum,length)
+            break
 
-
-if len(cnt_list) == 0 :
-    print(1)
-
-else :
-    print(max(cnt_list))
+print(maximum)
