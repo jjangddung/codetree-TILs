@@ -23,3 +23,6 @@ for i in arr :
     if n_list[i] >= k :
         print(i)
         break
+
+if max(n_list) < k :
+    print(-1)
