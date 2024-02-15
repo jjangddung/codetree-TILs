@@ -44,6 +44,8 @@ for p in arr :
             print(time)
             cnt = 1
             break
+    if cnt == 1:
+        break
 
 
 if cnt == 0 :
