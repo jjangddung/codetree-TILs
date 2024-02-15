@@ -28,7 +28,7 @@ start = 2
 arr[0][0] = 1
 # print(t)
 
-for i in range(10002) :
+for i in range(20000) :
     
     if first_dir == 0 : # 위로
         x , y = x + dxs[first_dir] , y + dys[first_dir]
