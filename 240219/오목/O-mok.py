@@ -72,3 +72,7 @@ for i in range(2,17) :
 
             grade +=1
             break
+
+
+if grade == 0 :
+    print(0)
