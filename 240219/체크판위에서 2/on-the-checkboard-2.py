@@ -16,7 +16,7 @@ count  = 0
 
 first_color = matrix[0][0]
 
-
+last_color = matrix[r-1][c-1]
 
 moving = []
 for i in range(1,r-2) :
@@ -33,7 +33,12 @@ for element in moving :
     for i in range(x+1,r-1) :
         for j in range(y+1,c-1):
             if matrix[i][j] == first_color :
+                print(x,y,i,j)
                 count +=1
 
 
-print(count)
+if last_color == first_color :
+    print(0)
+
+else :
+    print(count)
