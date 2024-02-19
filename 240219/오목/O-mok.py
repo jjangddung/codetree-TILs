@@ -66,13 +66,21 @@ grade = 0
 
 for i in range(2,17) :
     for j in range(2,17) :
-        if straight(arr,i,j) == True or up_down(arr,i,j) == True or diagonal_1(arr,i,j) == True or diagonal_2(arr,i,j) == True :
+        if  up_down(arr,i,j) == True or diagonal_1(arr,i,j) == True or diagonal_2(arr,i,j) == True :
             print(arr[i][j])
             print(i+1 , j+1)
 
             grade +=1
             break
 
+for i in range(19) :
+    for j in range(2,17) :
+        if straight(arr,i,j) == True :
+            print(arr[i][j])
+
+            print(i+1, j+1)
+            grade +=1
+            break
 
 if grade == 0 :
     print(0)
