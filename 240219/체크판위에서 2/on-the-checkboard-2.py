@@ -33,7 +33,7 @@ for element in moving :
     for i in range(x+1,r-1) :
         for j in range(y+1,c-1):
             if matrix[i][j] == first_color :
-                print(x,y,i,j)
+                # print(x,y,i,j)
                 count +=1
 
 
