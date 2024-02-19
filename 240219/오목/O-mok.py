@@ -35,7 +35,7 @@ def up_down(arr,i,j) :
         return True 
 
 
-def diagonal(arr,i,j) :
+def diagonal_1(arr,i,j) :
     standard = arr[i][j]
 
     if standard == 0 :
@@ -48,12 +48,25 @@ def diagonal(arr,i,j) :
                 return False
                 break
         return True
+def diagonal_2(arr,i,j) :
+    standard = arr[i][j]
+
+    if standard == 0 :
+        return False
+    else :
+
+        for k in range(-2,3) :
+            if arr[i+k][j-(k)] != standard :
+                return False
+                break
+        return True
+
 
 grade = 0
 
 for i in range(2,17) :
     for j in range(2,17) :
-        if straight(arr,i,j) == True or up_down(arr,i,j) == True or diagonal(arr,i,j) == True :
+        if straight(arr,i,j) == True or up_down(arr,i,j) == True or diagonal_1(arr,i,j) == True or diagonal_2(arr,i,j) == True :
             print(arr[i][j])
             print(i+1 , j+1)
 
