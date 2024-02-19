@@ -25,6 +25,7 @@ if count == 0 :
     for i in range(length) :
         if num_list[length-1-i] == "1" :
             num_list[length-1-i] = "0"
+            break
 
 
 # print(num_list)
