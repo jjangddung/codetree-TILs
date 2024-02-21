@@ -8,20 +8,20 @@ arr = list (map(int, input().split()))
 
 b_arr = list(map(int, input().split()))
 
-
+b_arr.sort()
 count = 0
 
 
 for i in range(0,n-m+1) :
     new_arr = arr[i:i+m]
-    b_copy_arr = b_arr.copy()
     new_check = []
 
     for i in new_arr :
-        if i in b_copy_arr :
+        if i in b_arr :
             new_check.append(i)
     
-    if len(new_check) == m and sum(new_check) == sum(b_arr) :
+    new_check.sort()
+    if new_check == b_arr :
         # print("같다!!")
         count +=1
         # print(new_check)
