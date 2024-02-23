@@ -15,9 +15,19 @@ for i in range(n) :
 maximum = 0
 length = len(arr)
 
-for i in range(k,length-k) :
+for i in range(length) :
+
+    start =  i -k
+    if i - k < 1 :
+        start = 1
+
+    end = i + k
+
+    if i + k > 100 :
+        end = 100
+    
     # print(i-k,i+k-1)
-    new_arr = arr[i-k:i+k+1]
+    new_arr = arr[start:end+1]
     # print(new_arr)
     p = sum(new_arr)
 
