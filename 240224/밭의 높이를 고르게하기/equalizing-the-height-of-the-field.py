@@ -14,7 +14,7 @@ arr = list(map(int, input().split()))
 minimum = 1000000
 
 ele = min(10,n)
-for p in range(t,ele+1) :
+for p in range(t,t+1) :
     for i in range(n-p+1) :
         new_arr = arr[i:i+p]
         # print(new_arr)
