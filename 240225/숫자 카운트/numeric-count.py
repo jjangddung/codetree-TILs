@@ -23,8 +23,8 @@ for i in range(1,10) :
                 ele = matrix[w]
                 num,s,b = ele[0], ele[1], ele[2]
                 num = str(num)
-                num_list = [num[0],num[1],num[2]]
-                print(num_list)
+                num_list = [int(d) for d in num]
+                # print(num_list)
 
                 first_count = 0
                 second_count = 0
@@ -37,8 +37,10 @@ for i in range(1,10) :
                 
                 for q in range(3) :
                     que = new_list[q]
-                    if que in num_list and que != num_list[q] :
-                        second_count +=1
+                    if que in num_list :
+                        if que != num_list[q] :
+                            second_count +=1
+    
                 
                 if second_count != b :
                     break
@@ -46,4 +48,4 @@ for i in range(1,10) :
             if result == n :
                 result_arr.append(new_list)
 
-print(result_arr)
+print(len(result_arr))
