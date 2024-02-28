@@ -8,8 +8,9 @@ arr = [list(map(int, input().split())) for _ in range(n)]
 
 max_time = 0
 
-time = [0]*1001
+
 for i in range(n) :
+    time = [0]*1001
     for j in range(n) :
         if  i == j :
             continue
