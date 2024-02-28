@@ -10,15 +10,18 @@ max_time = 0
 
 
 for i in range(n) :
-    time = [0]*1001
+    time = [0]*10
+    # print(time)
     for j in range(n) :
-        if  i == j :
+        if  j == i :
+            print(j)
             continue
         start_time = arr[j][0]
         end_time = arr[j][1]
-        for i in range(start_time,end_time) :
-            time[i] = 1
-        max_time = max(sum(time)-1,max_time)
+        for p in range(start_time,end_time) :
+            time[p] = 1
+    # print(time[0:11])
+    max_time = max(sum(time),max_time)
 
 
 print(max_time)
