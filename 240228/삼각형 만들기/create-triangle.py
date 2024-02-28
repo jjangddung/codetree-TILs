@@ -39,7 +39,7 @@ for i in range(n) :
                     line_2 = abs(ele[0])
                 
                 elif ele[0] != 0 and ele[1] != 0 :
-                    count_1 += 1
+                    count_3 += 1
             if count_1 == count_2 and count_2 == count_3 and count_3 == 1:
                 result = line_1*line_2
                 result_list.append(result)
