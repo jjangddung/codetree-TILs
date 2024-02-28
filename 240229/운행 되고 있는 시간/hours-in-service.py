@@ -14,7 +14,7 @@ for i in range(n) :
     # print(time)
     for j in range(n) :
         if  j == i :
-            print(j)
+            # print(j)
             continue
         start_time = arr[j][0]
         end_time = arr[j][1]
