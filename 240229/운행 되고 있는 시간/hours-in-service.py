@@ -10,7 +10,7 @@ max_time = 0
 
 
 for i in range(n) :
-    time = [0]*10
+    time = [0]*1001
     # print(time)
     for j in range(n) :
         if  j == i :
