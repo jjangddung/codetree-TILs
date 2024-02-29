@@ -17,31 +17,40 @@ arr.sort()
 count = 0
 
 def check_cross(num) :
-    # 선 범위안에 처음부터 아예 안들어가거나, 스타트 지점이 들어간 경우 엔드 지점은 밖에 들어가야함 선 범위에
-    ori_start =arr[num][0]
-    ori_end = arr[num][1]
-    ori = ori_end - ori_start
+
+    some = 0
+
+
+
+    a_1 =arr[num][0]
+    a_2 = arr[num][1]
+    a_chai = a_2 - a_1
 
 
     for p in range(n) :
         if p == num :
             continue
 
-        start,end = arr[p][0] , arr[p][1]
+        b_1, b_2 = arr[p][0] , arr[p][1]
 
-        new = end - start
+        b_chai = b_2 - b_1
 
-        up = ori_start*new - start*ori
-        down = new - ori
-        if down == 0 :
-            continue
+        up = a_1*b_chai - b_1*a_chai
+        down = b_chai-a_chai
+
             
-        result = up/down
+        if down != 0 :
+            result = up/down
+            
 
-        if ori_start<= result <= ori_end :
-            return False
-            break
-    return True
+            if a_1<= result <= a_2 and b_1 <= result <= b_2 :
+                
+                some +=1
+        
+    if some == 0 :
+        return True
+    else :
+        return False
 
 
 
