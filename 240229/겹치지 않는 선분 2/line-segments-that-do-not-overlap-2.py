@@ -40,10 +40,11 @@ def check_cross(num) :
 
             
         if down != 0 :
-            result = up/down
+            result = up/down # 교점의 x좌표 구하기
+            y =(result-a_1)/a_chai
             
 
-            if a_1<= result <= a_2 and b_1 <= result <= b_2 :
+            if a_1 <= result <= a_2 and b_1 <= result <= b_2 and 0 < y < 1 : # 교점의 x좌표가 모든 범위 안에 속해져있으면 문제 해결
                 
                 some +=1
         
