@@ -7,9 +7,9 @@ n = int(input())
 
 arr = [list(map(int, input().split())) for _ in range(n)]
 
-arr.sort()
+# arr.sort()
 
-# print(arr-)
+# print(arr)
 
 
 
@@ -41,13 +41,16 @@ def check_cross(num) :
             
         if down != 0 :
             result = up/down # 교점의 x좌표 구하기
-            y =(result-a_1)/a_chai
+
+            # print("결과값",result,i,p)
+
             
 
-            if a_1 <= result <= a_2 and b_1 <= result <= b_2 and 0 < y < 1 : # 교점의 x좌표가 모든 범위 안에 속해져있으면 문제 해결
+            if min(a_1,a_2) <= result <= max(a_1,a_2) and min(b_1,b_2) <= result <= max(b_1,b_2) : # 교점의 x좌표가 모든 범위 안에 속해져있으면 문제 해결
+                some+=1
+
                 
-                some +=1
-        
+    # print(some)
     if some == 0 :
         return True
     else :
@@ -59,8 +62,9 @@ def check_cross(num) :
 
 
 for i in range(n) :
-    if check_cross(i) :
+    if check_cross(i)== True :
         # print(i)
         count +=1
+        # print(count)
 
 print(count)
