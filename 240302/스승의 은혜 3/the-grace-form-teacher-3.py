@@ -27,14 +27,15 @@ for i in range(n) :
     result = 0
     # print(sum_list)
 
-    b_copy = b
     # print(b_copy)
+    assume = 0
+
     for element in sum_list :
-        if b_copy >= element :
-            b_copy -= element
+        assume += element
+        if assume <= b :
             result +=1
-        else :
-            break
+            
+        
     maximum = max(maximum,result)
 
 print(maximum)
