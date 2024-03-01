@@ -14,5 +14,7 @@ for i in range(n) :
             if j-i <= k :
                 result.append(arr[i])
 
-
-print(max(result))
+try:
+    print(max(result))
+except :
+    print(-1)
