@@ -22,18 +22,18 @@ for i in range(n) :
             matrix[j][0] = matrix[j][0]//2
         ele = sum(matrix[j])
         sum_list.append(ele)
-
+    sum_list.sort()
     result = 0
     # print(sum_list)
 
-    b_copy =b
-    
+    b_copy = b -1
+    b_copy +=1
     for element in sum_list :
         if b_copy >= element :
             b_copy -= element
             result +=1
         else :
-            pass
+            break
     result_list.append(result)
 
 print(max(result_list))
