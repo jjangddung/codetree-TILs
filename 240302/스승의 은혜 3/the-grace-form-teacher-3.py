@@ -11,7 +11,7 @@ matrix = [list(map(int, input().split())) for _ in range(n)]
 
 matrix.sort()
 
-result_list = []
+maximum = 0
 
 for i in range(n) :
     sum_list = []
@@ -35,6 +35,6 @@ for i in range(n) :
             result +=1
         else :
             break
-    result_list.append(result)
+    maximum = max(maximum,result)
 
-print(max(result_list))
+print(maximum)
