@@ -18,7 +18,7 @@ for i in range(1,n+1) :
         for ele in arr :
             if  ele.index(j) < ele.index(i) :
                 count +=1
-        if count == 3:
+        if count == k:
             result +=1
 
 
