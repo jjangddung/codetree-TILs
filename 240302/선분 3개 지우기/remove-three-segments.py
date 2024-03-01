@@ -16,8 +16,7 @@ for i in range(n-2) :
     for j in range(i+1,n-1) :
         for k in range(j+1,n) :
             matrix = [0]* 102
-            if i == j or j == k or i == k :
-                continue
+
             new_list = [i,j,k]
             mid = 0
             for p in range(n) :
