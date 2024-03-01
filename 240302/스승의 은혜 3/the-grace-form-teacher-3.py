@@ -22,11 +22,12 @@ for i in range(n) :
             matrix[j][0] = matrix[j][0]//2
         ele = sum(matrix[j])
         sum_list.append(ele)
-        
+
     result = 0
     # print(sum_list)
 
     b_copy =b
+    
     for element in sum_list :
         if b_copy >= element :
             b_copy -= element
