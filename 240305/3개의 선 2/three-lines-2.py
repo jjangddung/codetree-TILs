@@ -11,58 +11,71 @@ point_arr = [list(map(int, input().split())) for _ in range(n)]
 point_arr.sort()
 count = 0
 
+new_list = [1,2,3,4]
+ori_list = [5,6,7,8]
+
+
+
+
+def checking_x(num) :
+    new_list = []
+
+    for element in point_arr :
+        if num == element[0] :
+            new_list.append(element)
+    
+    return new_list
+
+
+def checking_y(num) :
+    new_list = []
+
+    for element in point_arr :
+        if num == element[1] :
+            new_list.append(element)
+    
+    return new_list
+
+
+
+
+
 
 for i in range(11) :
+
     for j in range(11) :
 
-        
-        new_list  = []
-
-        for element in point_arr :
-            if i == element[0] :
-                new_list.append(element)
-        
-        for element in point_arr :
-            if j == element[1] :
-                new_list.append(element)
-
-        if len(new_list) != 0 : 
-            tuple_list = [tuple(inner_list) for inner_list in new_list]
-            new_set = set(tuple_list)
-            new_list = list(new_set)
-            new_list.sort()
-        
-        else :
-            break
-
- 
-        for k in range(11):
-
-            ori_list_1 = new_list.copy()
-            ori_list_2 = new_list.copy()
-
-            for element in point_arr :
-                if k == element[0] :
-                    ori_list_1.append(element)
+        for k in range(11) :
             
-            tuple_list = [tuple(inner_list) for inner_list in ori_list_1]
-            new_set = set(tuple_list)
-            ori_list_1 = set(new_set)
-            ori_list_1 = list(ori_list_1)
-            ori_list_1.sort()
-            
-            for element in point_arr :
-                if k == element[1] :
-                    ori_list_2.append(element)
+            for x in range(2) :
+                for y in range(2) :
+                    for z in range(2) :
+                        if x == 0 :
+                            new_list_1 = checking_x(i)
+                        else :
+                            new_list_1 = checking_y(i)
+                        
+                        if y == 0 :
+                            new_list_2 = checking_x(j)
+                        
+                        else :
+                            new_list_2 = checking_y(j)
+                        
+                        if z == 0 :
+                            new_list_3 = checking_x(k)
+                        else :
+                            new_list_3 = checking_y(k)
+                        standard = new_list_1 + new_list_2 +new_list_3
 
-            tuple_list = [tuple(inner_list) for inner_list in ori_list_2]
-            ori_list_2 = set(tuple_list)
-            ori_list_2 = list(ori_list_2)
-            ori_list_2.sort()
+                        tuple_list = [tuple(inner_list) for inner_list in standard]
+                        new_set = set(tuple_list)
+                        standard = list(new_set)
 
-            if len(ori_list_1) == len(point_arr) or len(ori_list_2) == len(point_arr) :
-                count +=1
-                break
+                        standard.sort()
+
+                        if len(standard) == n :
+                            count +=1
+
 
 
 if count == 0 :
