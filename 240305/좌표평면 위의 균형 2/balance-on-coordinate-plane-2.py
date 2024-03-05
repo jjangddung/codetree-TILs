@@ -8,16 +8,16 @@ n = int(input())
 point_arr = [list(map(int, input().split())) for _ in range(n)]
 
 def quadrant(x,y,ele) :
-    if ele[0] > x and ele[1] > y  :
+    if ele[0] > x and ele[1] > y  : #1사분면
         return 1
-    elif ele[0] < x and ele[1] > y :
+    elif ele[0] < x and ele[1] > y : #2사분면
         return 2
     
-    elif ele[0] < x and ele[1] < y :
+    elif ele[0] < x and ele[1] < y : #3사분면
         return 3
 
     
-    elif ele[0] > x and ele[1] > y :
+    elif ele[0] > x and ele[1] > y : #4사분면
         return 4
 
 
@@ -47,7 +47,7 @@ for i in range(1,101) :
                 third +=1
             else :
                 forth +=1
-        mid = max(first,second,third,forth) - min(first,second,third,forth)
+        mid = max(first,second,third,forth) 
 
         if mid < maxi :
             result_list = [first,second,third,forth]
