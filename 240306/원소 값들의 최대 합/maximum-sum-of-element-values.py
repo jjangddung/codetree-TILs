@@ -13,15 +13,16 @@ for i in range(n) :
     arr = []
     for k in range(n) :
         arr.append(ori_arr[k])
-
-    total = 0
     
-    for j in range(m) :
-        new = arr[i]
+    total = 0
+    first = arr[i]
+    total += first
+    for j in range(m-1) :
+        if j == 0 :
+            new = arr[first-1]
+        else :
+            new = arr[new-1]
         total += new
-        temp = arr[new-1]
-        arr[new-1] = new
-        arr[i] = temp
     maxi = max(total,maxi)
 
 print(maxi)
