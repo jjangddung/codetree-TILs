@@ -16,7 +16,7 @@ for i in range(n) :
 
     total = 0
     
-    for j in range(3) :
+    for j in range(m) :
         new = arr[i]
         total += new
         temp = arr[new-1]
