@@ -7,6 +7,11 @@ n,k = map(int, input().split())
 
 arr = list(map(int, input().split()))
 
+set_arr = set(arr)
+set_arr = list(set_arr)
+set_arr.sort()
+
+
 
 def check_possible(max_val) :
     availale_indices = []
@@ -28,13 +33,14 @@ def check_possible(max_val) :
         if p ==  0 or p == n-1 :
             count +=1
     if count == 2 :
+        # print(availale_indices)
         return True
     else :
         return False
 
 minmax = 100000
 
-for a in range(1,n+1):
+for a in set_arr:
     if check_possible(a):
         minmax = min(minmax, a)
 
