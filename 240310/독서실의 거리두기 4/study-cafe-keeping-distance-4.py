@@ -16,14 +16,16 @@ maxi = 0
 
 
 for i in range(n) :
-    for j in range(n) :
+    for j in range(i+1,n) :
         if seat_list[i] == 1 or seat_list[j] == 1 :
             continue
         seat_copy = []
         for p in range(n) :
-            seat_copy.append(seat_list[p])
-        seat_copy[i] = 1
-        seat_copy[j] = 1
+            seat_copy.append(int(seat_list[p]))
+        seat_copy[i] = int(1)
+        seat_copy[j] =  int(1)
+
+        # print(seat_copy)
 
         seat_index = []
         for num, element in enumerate(seat_copy) :
