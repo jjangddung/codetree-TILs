@@ -23,10 +23,13 @@ for b in bomb :
         if ele == b :
             num_list.append(num)
     length = len(num_list)
-    count = 1
+    real_list = []
     for c in range(1,length) :
         if num_list[c] - num_list[c-1] <= k :
-            count +=1
+            real_list.append(num_list[c])
+            real_list.append(num_list[c-1])
+    real_list = set(real_list)
+    count = len(real_list)
     if t[0] < count :
         maxi = count
         real = b
