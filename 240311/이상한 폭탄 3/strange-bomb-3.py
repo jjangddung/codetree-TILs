@@ -35,7 +35,7 @@ for b in bomb :
         maxi = count
         real = b
 
-    elif t[0] == count :
+    elif t[0] == count and count != 0 :
         if t[1] < b :
 
             real = b
