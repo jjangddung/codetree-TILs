@@ -41,4 +41,7 @@ for b in bomb :
             real = b
     # print(t)
 
-print(real)
+if maxi == 1 :
+    print(0)
+else :
+    print(real)
