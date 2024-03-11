@@ -30,12 +30,15 @@ for b in bomb :
             real_list.append(num_list[c-1])
     real_list = set(real_list)
     count = len(real_list)
+    # print(count,b)
     if t[0] < count :
         maxi = count
         real = b
+
     elif t[0] == count :
         if t[1] < b :
-            maxi = count
-            real = b
 
-print(t[1])
+            real = b
+    # print(t)
+
+print(real)
