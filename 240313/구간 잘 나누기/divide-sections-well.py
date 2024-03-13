@@ -14,7 +14,7 @@ a = list(map(int, input().split()))
 # 잘 생각해 보면, 구간의 합의 최댓값을 결정한다면
 # 구간을 몇 개로 나눠야 하는지 손쉽게 찾을 수 있습니다.
 ans = MAX_A
-for i in range(1, MAX_A + 1):
+for i in range(min(a), sum(a) + 1):
     # 구간의 합의 최댓값이 i일 때
 
     # possible : 구간을 나눌 수 있으면 true
