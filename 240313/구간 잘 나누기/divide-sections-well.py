@@ -38,8 +38,9 @@ for i in range(1, MAX_A + 1):
         # 이번 구간에 j번째 숫자를 집어넣습니다.
         cnt += a[j]
 
-    if possible and section == m:
+    if possible and section <= m:
         ans = min(ans, i)
         break
+
 
 print(ans)
