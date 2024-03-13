@@ -53,6 +53,8 @@ def store(num) :
             if real[number] == 0 or number == n+m-2 :
                 total += real[number]
                 maxi = max(total,maxi)
+                if maxi > mini :
+                    break
                 total = 0
             
             else :
