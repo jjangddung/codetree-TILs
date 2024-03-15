@@ -16,10 +16,11 @@ for x in range(fisrt_square[0],fisrt_square[2]) :
         matrix[x][y] += 1
 
 count = 0
-for x in range(fisrt_square[0],fisrt_square[2]) :
+for x in range(second_square[0],second_square[2]) :
     
-    for y in range(fisrt_square[1],fisrt_square[3]):
+    for y in range(second_square[1],second_square[3]):
         if matrix[x][y] == 1 :
+            # print(x,y)
             print("overlapping") 
             count +=1
             break
