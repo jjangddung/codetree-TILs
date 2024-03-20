@@ -18,7 +18,7 @@ for time in range(1,1000000) :
     V_list = []
     result = 0
 
-    for v in range(1,V_max) :
+    for v in range(1,V_max) : #최대 속도 전까지는 최소 그 전속도는 2번씩은 나옴
         V_list.append(v)
         result += 2*v
     V_list.append(V_max)
