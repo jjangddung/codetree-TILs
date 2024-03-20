@@ -23,15 +23,16 @@ for time in range(1,1000000) :
         result += 2*v
     V_list.append(V_max)
 
-    # print(V_list)
+    
     minus = distance- result
-    if minus in V_list :
+    if minus in V_list  :
         print(time)
         break
     else :
         result += V_max
         V_list.append(V_max)
+        # print(V_list)
         minus -= V_max
         if minus in V_list :
-            print(time)
+            print(time+1)
             break
