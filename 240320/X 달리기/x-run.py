@@ -29,9 +29,8 @@ for time in range(1,1000000) :
         print(time)
         break
     else :
-        result += V_max
+        result += V_max # 최대속도 한 번 찍었다면..
         V_list.append(V_max)
-        # print(V_list)
         minus -= V_max
         if minus in V_list :
             print(time+1)
