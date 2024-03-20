@@ -6,9 +6,6 @@ input = sys.stdin.readline
 distance = int(input())
 
 
-
-
-
 for time in range(1,1000000) :
     if time % 2 == 0 : # 최대 속도를 정의하기
         V_max = time//2
