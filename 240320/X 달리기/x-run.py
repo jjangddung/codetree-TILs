@@ -24,7 +24,7 @@ for time in range(1,1000000) :
     V_list.append(V_max)
 
     
-    minus = distance- result
+    minus = distance- result #최대속도에 도달하지 않고, 다른 속도를 한 번 더 써서 도달한다면..
     if minus in V_list  :
         print(time)
         break
