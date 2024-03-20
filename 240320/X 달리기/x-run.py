@@ -5,6 +5,8 @@ input = sys.stdin.readline
 
 distance = int(input())
 
+# Dn = Dn-1 +(+-1 or 0)
+
 
 
 for time in range(1,1000000) :
@@ -14,18 +16,22 @@ for time in range(1,1000000) :
         V_max = time //2 +1
 
     V_list = []
+    result = 0
+
     for v in range(1,V_max) :
         V_list.append(v)
-        V_list.append(v)
+        result += 2*v
     V_list.append(V_max)
-    sorted_V_list = sorted(V_list)
 
     # print(V_list)
-    minus = distance- sum(V_list) 
-    if minus == 0 :
+    minus = distance- result
+    if minus in V_list :
         print(time)
         break
-
-    if minus in sorted_V_list :
-        print(time +1)
-        break
+    else :
+        result += V_max
+        V_list.append(V_max)
+        minus -= V_max
+        if minus in V_list :
+            print(time)
+            break
