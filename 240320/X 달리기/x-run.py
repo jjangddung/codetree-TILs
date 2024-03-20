@@ -5,12 +5,12 @@ input = sys.stdin.readline
 
 distance = int(input())
 
-# Dn = Dn-1 +(+-1 or 0)
+
 
 
 
 for time in range(1,1000000) :
-    if time % 2 == 0 :
+    if time % 2 == 0 : #최대속도 정의하기
         V_max = time//2
     else :
         V_max = time //2 +1
