@@ -21,14 +21,11 @@ for i in range(n) :
 # print(new_line_list)
 
 for line in new_line_list :
-    count = 0
+    count = 1
     maxi = 0
     for p in range(n-1) :
         if line[p] == line[p+1] :
-            if count  == 0 :
-                count +=2
-            else :
-                count +=1
+            count +=1
             # print("line과 count : ", line, count)
 
             if p == n-2 :
@@ -36,7 +33,7 @@ for line in new_line_list :
                 
         else :
             maxi = max(count,maxi)
-            count = 0
+            count = 1
     # print(maxi)
     # print(line, maxi)
     if maxi >= m :
