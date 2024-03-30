@@ -18,7 +18,7 @@ for i in range(n) :
     new_line_list.append(new_line_1)
     new_line_list.append(new_line_2)
 
-print(new_line_list)
+# print(new_line_list)
 
 for line in new_line_list :
     count = 1
