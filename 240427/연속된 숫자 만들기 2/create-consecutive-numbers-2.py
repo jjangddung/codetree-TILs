@@ -1,7 +1,7 @@
 import sys
 
 def clear(p,q,r) :
-    if r- q ==1 or q-p == 1 :
+    if r- q ==2 or q-p == 2 :
         return 1
     else :
         return 2
