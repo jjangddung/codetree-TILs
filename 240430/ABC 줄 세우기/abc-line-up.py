@@ -1,8 +1,3 @@
-import sys
-
-input = sys.stdin.readline
-
-
 n = int(input())
 origin = 'A'
 answer_list = []
