@@ -15,7 +15,7 @@ length = len(mat_3)
 for time in range(t) :
     temp = mat_3[length-1]
     i = length-1
-    while i >- 0 :
+    while i > 0 :
         mat_3[i] = mat_3[i-1]
         i-=1
     mat_3[0] = temp
