@@ -11,7 +11,7 @@ matrix = [list(map(int, input().split())) for _ in range(n)]
 
 
 r,c = r-1, c-1
-curr_x, curr_y = c , r
+curr_x, curr_y = r , c
 print(matrix[curr_x][curr_y], end= " ")
 
 def in_range(x,y) :
