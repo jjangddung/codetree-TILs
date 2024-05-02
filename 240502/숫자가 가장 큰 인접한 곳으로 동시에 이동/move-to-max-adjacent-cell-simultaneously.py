@@ -19,18 +19,21 @@ def in_range(x,y) :
     return  0<= x < n and 0 <= y < n 
 
 
-for xy in rc_list :
-    xy = [xy[0]-1, xy[1]-1]
+real_list = []
 
+for xy in rc_list :
+    real_list.append([xy[0]-1,xy[1]-1])
+
+# print(real_list)
 
 for _ in range(t) :
     new_count_matrix = [[0]*n  for _  in range(n)]
     new_list = []
 
 
-    for xy in rc_list :
-        curr_x , curr_y = xy[0]-1 ,xy[1]-1
-        maxi = matrix[curr_x][curr_y]
+    for xy in real_list :
+        curr_x , curr_y = xy[0] ,xy[1]
+        maxi = 0
         maxi_x , maxi_y = curr_x ,curr_y
 
         for dx,dy in zip (dxs,dys) :
@@ -40,7 +43,7 @@ for _ in range(t) :
                 maxi_x = next_x
                 maxi_y = next_y
         
-        new_count_matrix[maxi_x][maxi_y] = 1
+        new_count_matrix[maxi_x][maxi_y] += 1
     # print(new_count_matrix)
     for r in range(n) :
         for c in range(n) :
@@ -48,7 +51,7 @@ for _ in range(t) :
                 new_count_matrix[r][c] == 0
             elif new_count_matrix[r][c] == 1 :
                 new_list.append([r,c])
-    rc_list = new_list
+    real_list = new_list
 
 
-print(len(rc_list))
+print(len(real_list))
