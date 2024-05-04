@@ -17,10 +17,11 @@ def checking(num) :
             checking(num+1)
             answer.pop()
         else :
-            if answer[num-1] != ele and answer[num-1] != answer[num-2]:
-                answer.append(ele)
-                checking(num+1)
-                answer.pop()
+            if answer[num-1] == ele and answer[num-2] == ele :
+                continue
+            answer.append(ele)
+            checking(num+1)
+            answer.pop()
 
     return
 
