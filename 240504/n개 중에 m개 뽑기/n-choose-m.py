@@ -11,19 +11,14 @@ def choose(curr_num,one_cnt) :
     #종료 조건
     if curr_num == n + 1 :
         if one_cnt == m :
-            for i in range(n) :
-                if answer[i] == 1 :
-                    print(i+1 , end= " ")
-            print()
+            print(*answer)
         return
 
-    answer.append(1)
+    answer.append(curr_num)
     choose(curr_num+1,one_cnt+1)
     answer.pop()
 
-    answer.append(0)
     choose(curr_num+1,one_cnt)
-    answer.pop()
 
     
 
