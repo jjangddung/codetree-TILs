@@ -9,7 +9,7 @@ matrix = [list(map(int, input().split())) for _ in range(n)]
 
 result = 0
 k = 0 
-while 2*(k//2) +1 <= n :
+while k <= n :
 
     cost = - 2*(k**2) -2*k -1
 
