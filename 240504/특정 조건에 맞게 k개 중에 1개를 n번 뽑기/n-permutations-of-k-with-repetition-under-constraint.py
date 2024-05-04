@@ -13,13 +13,13 @@ def checking(num) :
 
     for ele in range(1,k+1) :
         t = len(answer)
-        if  t < 2 :
+        if  num < 3 :
             answer.append(ele)
             checking(num+1)
             answer.pop()
         else :
-            if answer[t-1] == ele :
-                if answer[t-1] != answer[t-2] :
+            if answer[num-1] == ele :
+                if answer[num-1] != answer[num-2] :
                     answer.append(ele)
                     checking(num+1)
                     answer.pop()
@@ -32,4 +32,4 @@ def checking(num) :
     return
 
 
-checking(1)
+checking(0)
