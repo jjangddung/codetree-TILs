@@ -12,7 +12,7 @@ def checking(num) :
         return
 
     for ele in range(1,k+1) :
-        if num < 3 :
+        if len(answer) < 3 :
             answer.append(ele)
             checking(num+1)
             answer.pop()
