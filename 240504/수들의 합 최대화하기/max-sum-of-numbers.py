@@ -8,12 +8,11 @@ n = int(input())
 answer = []
 
 matrix = [list(map(int, input().split())) for _ in range(n)]
-# print(matrix)
-visited_list = [[False]*n for _ in range(n)]
+
+
 visited_x = [False]*n
 visited_y = [False]*n
-# print(visited_list)
-        
+
 
 maxi = 0 
 
@@ -26,10 +25,7 @@ def choose(num) :
             result += matrix[value[0]][value[1]]
         
         maxi = max(result,maxi)
-            
-
         return
-
 
     for i in range(n) :
         for j in range(n) :
