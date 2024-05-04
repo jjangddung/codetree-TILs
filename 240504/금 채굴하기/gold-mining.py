@@ -15,14 +15,14 @@ for i in range(n) :
 
         k = 1 
         
-        while 2*k -1 <= n :
+        while k <= n :
             total_sum = 0
             count = 0
             cost = - 2*(k**2) -2*k -1
             for x in range(n) :
                 for y in range(n) :
                     distance = abs(x-origin_x) + abs(y-origin_y)
-                    if distance <=   k and matrix[x][y] == 1 :
+                    if distance <= k and matrix[x][y] == 1 :
                         total_sum += matrix[x][y] * m
                         count += 1
 
