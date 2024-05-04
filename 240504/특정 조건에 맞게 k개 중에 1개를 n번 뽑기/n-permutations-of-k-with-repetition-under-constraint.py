@@ -12,16 +12,22 @@ def checking(num) :
         return
 
     for ele in range(1,k+1) :
-        if len(answer) < 3 :
+        t = len(answer)
+        if  t < 2 :
             answer.append(ele)
             checking(num+1)
             answer.pop()
         else :
-            if answer[num-1] == ele and answer[num-2] == ele :
-                continue
-            answer.append(ele)
-            checking(num+1)
-            answer.pop()
+            if answer[t-2] == ele :
+                if answer[t-3] != answer[t-2] :
+                    answer.append(ele)
+                    checking(num+1)
+                    answer.pop()
+            else :
+                answer.append(ele)
+                checking(num+1)
+                answer.pop()
+
 
     return
 
