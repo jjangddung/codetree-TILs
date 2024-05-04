@@ -10,45 +10,32 @@ answer = []
 matrix = [list(map(int, input().split())) for _ in range(n)]
 
 
-visited_x = [False]*n
-visited_y = [False]*n
-
+visited_list = [False]*n
 
 maxi = 0 
 
 def choose(num) :
-    global result
-    
     global maxi
 
     if num == n +1 :
         result = 0
 
-        for value in answer:
-            result += matrix[value[0]][value[1]]
-        
-        maxi = max(result,maxi)
-
+        for t in range(n) :
+            result += matrix[t][answer[t]]
+        maxi = max(result, maxi) 
         return
-    
-    for p in range(n) :
-        if visited_x[p] :
+
+    for i in range(n) :
+        if visited_list[i]:
             continue
-        for q in range(n) :
-            if visited_y[q] :
-                continue
-            answer.append([p,q])
-            visited_x[p] = True
-            visited_y[q] = True
 
-            choose(num+1)
-            answer.pop()
+        answer.append(i)
+        visited_list[i] = True
         
-            visited_x[p] = False
-            visited_y[q] = False
+        choose(num +1)
+        answer.pop()
+        visited_list[i] = False
 
-
-    
 
 choose(1)
 print(maxi)
