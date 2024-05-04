@@ -18,8 +18,8 @@ def checking(num) :
             checking(num+1)
             answer.pop()
         else :
-            if answer[t-2] == ele :
-                if answer[t-3] != answer[t-2] :
+            if answer[t-1] == ele :
+                if answer[t-1] != answer[t-2] :
                     answer.append(ele)
                     checking(num+1)
                     answer.pop()
