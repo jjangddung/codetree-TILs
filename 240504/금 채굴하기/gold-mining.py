@@ -15,7 +15,7 @@ for i in range(n) :
 
         k = 1 
         
-        while 2*k -1 < n :
+        while 2*k -1 <= n :
             total_sum = 0
             count = 0
             cost = - 2*(k**2) -2*k -1
