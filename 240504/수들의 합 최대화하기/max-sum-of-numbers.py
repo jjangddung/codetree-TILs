@@ -15,16 +15,16 @@ visited_y = [False]*n
 
 
 maxi = 0 
-
+result = 0
 def choose(num) :
-    global maxi
-    result = 0
+    global result
     
+    global maxi
+
     if num == n +1 :
-        for value in answer :
-            result += matrix[value[0]][value[1]]
-        
+
         maxi = max(result,maxi)
+        result = 0
         return
 
     for i in range(n) :
@@ -32,7 +32,7 @@ def choose(num) :
             if visited_x[i] == True or visited_y[j] == True :
                 continue
 
-            answer.append([i,j])
+            result += matrix[i][j]
 
             visited_x[i] = True
             visited_y[j] = True
@@ -42,7 +42,6 @@ def choose(num) :
             visited_x[i] = False
             visited_y[j] = False
 
-            answer.pop()
 
 choose(1)
 print(maxi)
