@@ -7,27 +7,16 @@ def print_answer() :
 
 
 def checking(num) :
-    if num == n+1 :
+    if num == n :
         print_answer()
         return
 
     for ele in range(1,k+1) :
-        t = len(answer)
-        if  num < 3 :
-            answer.append(ele)
-            checking(num+1)
-            answer.pop()
-        else :
-            if answer[num-1] == ele :
-                if answer[num-1] != answer[num-2] :
-                    answer.append(ele)
-                    checking(num+1)
-                    answer.pop()
-            else :
-                answer.append(ele)
-                checking(num+1)
-                answer.pop()
-
+        if num > 3 and answer[-1] == ele and answer[-2] == ele :
+            continue
+        answer.append(ele)
+        checking(num +1 )
+        answer.pop()
 
     return
 
