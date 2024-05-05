@@ -14,13 +14,19 @@ visited = [False] * (n+1)
 def choose(num) :
     global mini
 
+
     if num == n  :
         result = 0
+
 
         for i in range(1,len(answer)) :
             result += matrix[answer[i-1]][answer[i]]
         result += matrix[0][answer[0]]
         result += matrix[answer[-1]][0]
+
+        if result < mini :
+            print(*answer)
+
 
         mini = min(result,mini)
 
