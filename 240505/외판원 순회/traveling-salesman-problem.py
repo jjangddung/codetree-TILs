@@ -20,28 +20,19 @@ def choose(num) :
 
 
         for i in range(1,len(answer)) :
-            result += matrix[answer[i-1]][answer[i]]
-        result += matrix[0][answer[0]]
-        result += matrix[answer[-1]][0]
+            a = matrix[answer[i-1]][answer[i]]
+            if a == 0 :
+                return
+            result += a
 
-        if result < mini :
-            print(*answer)
+        b = matrix[0][answer[0]]
+        c = matrix[answer[-1]][0]
 
+        if b == 0 or c == 0 :
+            return
+        result = result + b + c 
 
         mini = min(result,mini)
-
-
-        # for p in range(n-1) :
-            # index = answer[p]
-            # if p == 0 :
-                # result += matrix[0][index]
-            # elif p == n-2 :
-                # result += matrix[index][0]
-            # else :
-                # index_2 = answer[p-1]
-                # result += matrix[index_2][index]
-            # 
-            # mini = min(result,mini)
 
         return
 
