@@ -10,9 +10,6 @@ num_list = list(map(int, input().split()))
 
 
 
-
-
-
 answer = []
 
 
@@ -21,9 +18,9 @@ maxi_count = 0
 
 def choose(num) :
     global maxi_count
-    global m 
+    global k 
     if num == n +1  :
-        matrix = [0]* (m+1)
+        matrix = [0]* (k+1)
         count  = 0
         for p in range(n) :
             j = answer[p]
