@@ -35,7 +35,7 @@ def choose(num) :
         return 
 
     
-    for i in range(n) :
+    for i in range(k) :
         answer.append(i)
         choose(num+1)
         answer.pop()
