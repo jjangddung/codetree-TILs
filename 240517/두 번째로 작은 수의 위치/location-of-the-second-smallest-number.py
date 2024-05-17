@@ -16,10 +16,15 @@ new_matrix = list(new_matrix)
 new_matrix.sort()
 # print(matrix)
 
-element = new_matrix[1]
+if len(new_matrix) >= 2:
 
-if  matrix.count(element) != 1 :
-    print(-1)
+    element = new_matrix[1]
+
+    if  matrix.count(element) != 1 :
+        print(-1)
+
+    else :
+        print(matrix.index(element)+1)
 
 else :
-    print(matrix.index(element)+1)
+    print(-1)
