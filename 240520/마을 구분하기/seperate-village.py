@@ -1,9 +1,6 @@
 n = int(input())
 
-order = 0
-
-
-# grid의 좌표가 0
+order = 1
 
 grid = [list(map(int , input().split())) for _ in range(n)]
 
@@ -44,11 +41,16 @@ def dfs(x,y) :
 
 for x in range(n) :
     for y in range(n) :
-        if visited[x][y] == 0 and grid[x][y] == 1 :
-            order +=1            
-            dfs(x,y)
+        if visited[x][y] == 1 or grid[x][y] == 0 :
+            continue
+        answer[x][y] = order
+        visited[x][y] = 1
+        dfs(x,y)
+        order +=1            
             
-
+            
+# for x in range(n) :
+    # print(*answer[x])
 
 result_list = [0]*(order+1)
 
@@ -59,9 +61,22 @@ for p in range(1,order+1) :
                 result_list[p] += 1
 
 
-new_result_list = result_list[1:]
+# print(result_list)
+# new_result_list = result_list[1:]
+# 
+# print(len(new_result_list))
+# new_result_list.sort()
+# for alpha in new_result_list :
+    # print(alpha)
 
-print(len(new_result_list))
-new_result_list.sort()
-for alpha in new_result_list :
-    print(alpha)
+result_list.sort()
+final_list = []
+for ele in result_list :
+    if ele != 0 :
+        final_list.append(ele)
+
+
+print(len(final_list))
+
+for ele in final_list :
+    print(ele)
