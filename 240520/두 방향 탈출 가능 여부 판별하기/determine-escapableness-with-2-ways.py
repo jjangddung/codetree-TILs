@@ -26,15 +26,15 @@ def can_go(x,y) :
 def dfs(x,y) :
     global order
 
-    dxs = [-1,0] # 하 우
+    dxs = [1,0] # 하 우
     dys = [0,1]
 
     for dx , dy in zip(dxs, dys) :
         new_x, new_y = x + dx , y +dy
         
         if can_go(new_x,new_y) :
-            answer[new_x][new_y] = order
             order +=1
+            answer[new_x][new_y] = order
             visited[new_x][new_y] = 1
             dfs(new_x,new_y)
 
@@ -42,6 +42,8 @@ answer[0][0] = order
 order = 1
 visited[0][0] = 1
 dfs(0,0)
+
+# print(answer)
 
 if answer[n-1][m-1] != 0 :
     print(1)
