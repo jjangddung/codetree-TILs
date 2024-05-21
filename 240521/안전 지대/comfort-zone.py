@@ -3,7 +3,7 @@ n ,m  = map(int , input().split())
 
 grid = [list(map(int, input().split())) for _ in range(n)]
 
-result = 0
+result = 1
 result_index = 0
 
 def in_range(x,y) :
