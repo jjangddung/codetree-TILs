@@ -27,14 +27,20 @@ for r in range(n) :
 
         new_x , new_y =  r , c
         total_sum += matrix[new_x][new_y]
+        count = 0
         for dx, dy in zip (dxs, dys) :
+            count +=1
             while True :
                 new_x , new_y =  new_x +dx , new_y +dy
                 if not in_range(new_x,new_y) :
                     break
                 if equal(r,c,new_x,new_y) :
+                    # total_sum += matrix[new_x][new_y]
                     break 
                 total_sum += matrix[new_x][new_y]
+
+        if count != 4 :
+            continue
         maxi_sum = max(total_sum, maxi_sum)
 
 print(maxi_sum)
