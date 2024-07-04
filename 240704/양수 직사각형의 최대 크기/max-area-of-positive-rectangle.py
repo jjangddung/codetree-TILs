@@ -14,8 +14,8 @@ def in_range(x,y) :
 maxi = -1 
 
 def checking(x,y,width,height) :
-    for t in range(height+1) :
-        for p in range(width+1):
+    for t in range(height) :
+        for p in range(width):
             if not in_range(x+t,y+p) :
                 return False
             if matrix[x+t][y+p] < 0 :
@@ -23,22 +23,20 @@ def checking(x,y,width,height) :
 
     return True
 
+def final_checking(h,w,n,m) :
+    for p in range(n) :
+        for q in range(m) :
+            if checking(p,q,w,h) == True :
+                return True 
 
+    return False
 
-for h in range(n) :
-    for w in range(m) :
+for h in range(1,n+1) :
+    for w in range(1,m+1) :
+        count = 0 
         for p in range(n) :
             for q in range(m) :
-                if matrix[p][q] < 0 :
-                    total = -1
-
-                if checking(p,q,w,h) == True :
-                    total = (w+1)*(h+1)
-                #     print(p,q,w,h)
-                maxi = max(maxi,total)
+                if final_checking(h,w,n,m)  == True :
+                    maxi = max(maxi, h*w)
                 
-
-
-
-
 print(maxi)
