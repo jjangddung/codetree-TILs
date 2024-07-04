@@ -34,9 +34,7 @@ def final_checking(h,w,n,m) :
 for h in range(1,n+1) :
     for w in range(1,m+1) :
         count = 0 
-        for p in range(n) :
-            for q in range(m) :
-                if final_checking(h,w,n,m)  == True :
-                    maxi = max(maxi, h*w)
+        if final_checking(h,w,n,m)  == True :
+            maxi = max(maxi, h*w)
                 
 print(maxi)
