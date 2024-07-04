@@ -34,7 +34,6 @@ for h in range(n) :
 
                 if checking(p,q,w,h) == True :
                     total = (w+1)*(h+1)
-                if total > maxi :
                 #     print(p,q,w,h)
                 maxi = max(maxi,total)
                 
