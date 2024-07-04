@@ -18,7 +18,7 @@ def checking(x,y,width,height) :
         for p in range(width):
             if not in_range(x+t,y+p) :
                 return False
-            if matrix[x+t][y+p] < 0 :
+            if matrix[x+t][y+p] <= 0 :
                 return False
 
     return True
@@ -33,7 +33,6 @@ def final_checking(h,w,n,m) :
 
 for h in range(1,n+1) :
     for w in range(1,m+1) :
-        count = 0 
         if final_checking(h,w,n,m)  == True :
             maxi = max(maxi, h*w)
                 
