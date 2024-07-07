@@ -59,6 +59,7 @@ for _ in range(q) :
         dircection = 1
     direction_list.append(dircection)
 for l, direction in zip(lane_list,direction_list) :
+    l -=1
     wind_change(matrix[l],dircection)
     count = l-1
     new_dir = dircection
