@@ -1,67 +1,75 @@
 n, m, q = map(int, input().split())
+arr = [list(map(int, input().split())) for _ in range(n)]
+wind = [list(map(str, input().split())) for _ in range(q)]
 
-matrix = [list(map(int, input().split())) for _ in range(n)]
+# 배열 범위 체크 함수 row + 1 / row - 1
+def row_in_range(x):
+    return 0 <= x < n 
 
-lane_list = []
-direction_list = []
+def Up_check(row, arr) :
+    check = False
+    for j in range(m) :
+        if row_in_range(row - 1) and arr[row - 1][j] == arr[row][j] :
+            check = True
+    row = row - 1
+    return check
 
-def wind_change(w, direct):
-    if direct == 0:
-        temp = w[m-1]
-        for i in range(m-1, 0, -1):
-            w[i] = w[i-1]
-        w[0] = temp
-    else:
-        temp = w[0]
-        for i in range(m-1):
-            w[i] = w[i+1]
-        w[m-1] = temp
-    return w
+def Down_check(row, arr) :
+    check = False
+    for j in range(m) :
+        if row_in_range(row + 1) and arr[row + 1][j] == arr[row][j] :
+            check = True
+    row = row + 1
+    return check
 
-def up_checking_side(l):
-    if 0 <= l < n-1:
-        for i in range(m):
-            if matrix[l][i] == matrix[l+1][i]:
-                return True
-    return False
+def Move(row, dirt) :
+    if dirt == 'L' :
+        last_temp = arr[row][-1]
+        for i in range(m - 1, 0, -1) :
 
-def down_checking_side(l):
-    if 0 < l <= n-1:
-        for i in range(m):
-            if matrix[l][i] == matrix[l-1][i]:
-                return True
-    return False
+            arr[row][i] = arr[row][i - 1]
+        arr[row][0] = last_temp
+        dirt = 'R'
+    else :
+        first_temp = arr[row][0]
+        for i in range(0, m - 1) :
+            arr[row][i] = arr[row][i + 1]
+        arr[row][-1] = first_temp
+        dirt = 'L'
+    return arr, dirt
 
-for _ in range(q):
-    lane, direction = input().split()
-    lane_list.append(int(lane))
-    if direction == "R":
-        direction = 0
-    else:
-        direction = 1
-    direction_list.append(direction)
+row = 0
+for i in range(q) :
+    row = int(wind[i][0]) - 1
+    dirt = wind[i][1] 
 
-for l, direction in zip(lane_list, direction_list):
-    wind_change(matrix[l], direction)
-    count = l - 1
-    new_dir = direction
-    while count >= 0:
-        if up_checking_side(count):
-            new_dir += 1
-            wind_change(matrix[count], new_dir % 2)
-            count -= 1
-        else:
+    arr, dirt = Move(row, dirt)
+
+    up_row = row
+    up_dirt = dirt
+
+    down_row = row
+    down_dirt = dirt
+
+    while(True) : # up
+        if Up_check(up_row, arr) :
+            up_row -= 1
+            #print('Up_check true 들어가기 전 : ', up_dirt)
+            arr, up_dirt = Move(up_row, up_dirt)
+            #print('Up_check true : ', up_dirt)
+        else :
+            break
+    
+    while(True) : # down
+        if Down_check(down_row, arr) :
+            down_row += 1
+            #print('Down_check true 들어가기 전 : ', down_dirt)
+            arr, down_dirt = Move(down_row, down_dirt)
+            #print('Down_check true : ', down_dirt)
+        else :
             break
 
-    count = l + 1
-    new_dir = direction
-    while count < n:
-        if down_checking_side(count):
-            new_dir += 1
-            wind_change(matrix[count], new_dir % 2)
-            count += 1
-        else:
-            break
-
-for row in matrix:
-    print(*row)
+for e in  arr :
+    for ee in e :
+        print(ee, end = ' ')
+    print()
