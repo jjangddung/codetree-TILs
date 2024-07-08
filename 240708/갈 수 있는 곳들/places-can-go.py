@@ -49,7 +49,7 @@ def bfs() :
 for _ in range(k) :
     x_grid, y_grid = map(int, input().split())
 
-    push(x_grid,y_grid)
+    push(x_grid-1,y_grid-1)
     bfs()
 
 
