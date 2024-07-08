@@ -14,7 +14,7 @@ def in_range(x,y) :
     return  0<= x < n and 0 <= y < n 
 
 
-order = 0
+
 
 
 def can_go(x,y) :
@@ -28,8 +28,7 @@ def can_go(x,y) :
 
 
 def push(x,y) :
-    global order
-    order +=1
+
     q.append((x,y))
     visited[x][y] = True
 
@@ -53,4 +52,11 @@ for _ in range(k) :
     bfs()
 
 
-print(order-1)
+count = 0
+
+for x in range(n) :
+    for y in range(n) :
+        if visited[x][y] :
+            count+=1
+
+print(count)
