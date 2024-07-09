@@ -86,8 +86,9 @@ for _ in range(k) :
                     max_value =  grid[x][y]
                     result_x, result_y = x, y
     
-    r,c = result_x+1, result_y+1
-
+    if count != 0 :
+        r,c = result_x+1, result_y+1
+    
                 
 
 print(r, c)
