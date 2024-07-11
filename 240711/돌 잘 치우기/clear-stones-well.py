@@ -70,7 +70,6 @@ def bfs() :
             new_x, new_y = x + dx, y+dy
 
             if can_go(new_x,new_y) == True :
-                order +=1
                 push(new_x,new_y)
     
 
@@ -82,32 +81,38 @@ def push(x,y) :
     q.append((x,y))
     visited[x][y] = True
 
-
-q = deque()
+rc_list = []
 for _ in range(k) :
     r,c = map(int, input().split())
-    r,c = r-1,c-1
-   
+    rc_list.append([r,c])
 
-    for blocks in answer_list :
-        visited = [[False]*n for _ in range(n)]
-        count = 0
-        order = 1
+
+
+
+q = deque()
+for blocks in answer_list :   # index position
+    visited = [[False]*n for _ in range(n)]
+    count = 0
+    
+    #push(r,c)
+    new_grid = [[0]*n for _ in range(n)]
+    for t in blocks :
+        x,y = block_list[t][0] , block_list[t][1]
+        new_grid[x][y] = 1
+
+    for rc in rc_list :
+        r,c = rc[0],rc[1]
+        r ,c = r-1 ,c-1
         push(r,c)
-        new_grid = [[0]*n for _ in range(n)]
-
-        for t in blocks :
-            x,y = block_list[t][0] , block_list[t][1]
-            new_grid[x][y] = 1
         bfs()
-        # for alpha in range(n) :
-            # for beta in range(n) :
-                # if visited[alpha][beta] == True :
-                    # count +=1
 
-        # print(*visited)
-        # print(f'{r}, {c}, {count}')
-        # print("order", order)
-        maxi_order = max(order, maxi_order)
+    for x in range(n) :
+        for y in range(n) :
+            if visited[x][y] :
+                count +=1
+
+    maxi_order = max(count, maxi_order) 
+
 
 print(maxi_order)
+# print(num)
