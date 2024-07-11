@@ -54,13 +54,14 @@ def can_go(x,y) :
     if not in_range(x,y) :
         return False
 
-    if  visited[x][y] or new_grid[x][y] == 1 :
+    if  visited[x][y] or new_grid[x][y] :
         return False
 
     return True
 
 def bfs() :
     dxs,dys = [-1,1,0,0],[0,0,-1,1]
+    global order
     
 
     while q :
@@ -69,13 +70,14 @@ def bfs() :
             new_x, new_y = x + dx, y+dy
 
             if can_go(new_x,new_y) == True :
+                order +=1
                 push(new_x,new_y)
     
 
 
 
 maxi_order  = 0
-
+order = 0
 def push(x,y) :
     q.append((x,y))
     visited[x][y] = True
@@ -90,6 +92,7 @@ for _ in range(k) :
     for blocks in answer_list :
         visited = [[False]*n for _ in range(n)]
         count = 0
+        order = 1
         push(r,c)
         new_grid = [[0]*n for _ in range(n)]
 
@@ -97,13 +100,14 @@ for _ in range(k) :
             x,y = block_list[t][0] , block_list[t][1]
             new_grid[x][y] = 1
         bfs()
-        for alpha in range(n) :
-            for beta in range(n) :
-                if visited[alpha][beta] == True :
-                    count +=1
+        # for alpha in range(n) :
+            # for beta in range(n) :
+                # if visited[alpha][beta] == True :
+                    # count +=1
 
         # print(*visited)
-        # print("count: ", count)
-        maxi_order = max(count, maxi_order)
+        # print(f'{r}, {c}, {count}')
+        # print("order", order)
+        maxi_order = max(order, maxi_order)
 
 print(maxi_order)
