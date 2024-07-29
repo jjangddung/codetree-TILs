@@ -18,11 +18,13 @@ dp[0] = 1
 for i in range(1,n) :
     for j in range(i) :
 
-        if matrix[j] == INT_MIN :
+        if dp[j] == INT_MIN :
             continue
 
         if matrix[i] > matrix[j] :
             dp[i] = max(dp[i], dp[j] + 1)
+
+
 
 
 
