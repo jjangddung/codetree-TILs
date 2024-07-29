@@ -21,7 +21,7 @@ for i in range(1,n) :
         if matrix[j] == INT_MIN :
             continue
 
-        if matrix[i] >= matrix[j] :
+        if matrix[i] > matrix[j] :
             dp[i] = max(dp[i], dp[j] + 1)
 
 
