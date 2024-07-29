@@ -22,7 +22,7 @@ for i in range(1,n) :
             continue
 
         if matrix[i] > matrix[j] :
-            dp[i] = max(dp[i], dp[j] + 1)
+            dp[i] = max(dp[i], dp[j] + 1,1)
 
 
 
