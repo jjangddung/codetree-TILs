@@ -14,10 +14,6 @@ matrix= list(map(int, input().split()))
 dp = [INT_MIN]* (m+1)
 
 
-for i  in range(n) :
-    coin = matrix[i]
-    dp[coin] = 1
-
 
 
 for i in range(1,m+1) :
