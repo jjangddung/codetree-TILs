@@ -22,7 +22,7 @@ for i in range(1,m+1) :
 
 ans = dp[m]
 
-if ans != INT_MIN :
+if ans > 0  :
     print(ans)
 else :
     print(-1)
