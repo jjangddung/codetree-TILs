@@ -7,7 +7,7 @@ coin = list(map(int , input().split()))
 
 INT_MIN = -sys.maxsize
 
-dp = [0] * (m+1)
+dp = [INT_MIN] * (m+1)
 
 dp[0] = 0
 
@@ -18,7 +18,7 @@ for i in range(1,m+1) :
             if dp[i-coin[j]] == INT_MIN :
                 continue
 
-            dp[i] = max(dp[i], dp[i-coin[j] ]+1 )
+            dp[i] = max(dp[i], dp[i-coin[j]]+1 )
 
 ans = dp[m]
 
