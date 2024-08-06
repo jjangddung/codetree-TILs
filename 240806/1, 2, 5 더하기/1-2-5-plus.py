@@ -23,4 +23,4 @@ for i in range(1, n + 1):
 
 
 # 결과 출력
-print(dp[n])
+print(dp[n]%10007)
