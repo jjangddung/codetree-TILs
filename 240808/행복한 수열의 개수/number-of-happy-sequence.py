@@ -16,7 +16,7 @@ for i in range(n) :
     # print(horizon)
 
     count = 1
-    maxi =  0
+    maxi =  1
     # step = 0
 
     for k in range(1,n) :
