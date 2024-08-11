@@ -5,38 +5,31 @@ matrix = list(map(int, input().split()))
 # 리스트들을 반으로 나누는 것부터 해보자!
 
 
-div_list = []
+
+def merge_sort(arr):
+    if len(arr) < 2:
+        return arr
+
+    mid = len(arr) // 2
+    low_arr = merge_sort(arr[:mid])
+    # print(low_arr)
+    high_arr = merge_sort(arr[mid:])
+    # print(high_arr)
 
 
-def func(arr) :
-    length  = len(arr)
-    if length == 1 :
-        div_list.append(arr)
-        return 
+    merged_arr = []
+    l = h = 0
+    while l < len(low_arr) and h < len(high_arr):
+        if low_arr[l] < high_arr[h]:
+            merged_arr.append(low_arr[l])
+            l += 1
+        else:
+            merged_arr.append(high_arr[h])
+            h += 1
+    merged_arr += low_arr[l:]
+    merged_arr += high_arr[h:]
+    return merged_arr
 
-    mid = int(length/2)
-    new_list_1 = arr[:mid]
-    func(new_list_1)
-    new_list_2 = arr[mid:]
-    func(new_list_2)
 
 
-func(matrix)
-#print(div_list)
-
-# 나눴으면 합쳐보자 합치는 방식은...?
-
-def merge(arr1, arr2) :
-    new_merge = []
-
-    new_len = len(arr1) + len(arr2)
-    k = 0
-    i ,j = 0,0
-
-    while k  == n :
-        if arr1[i] <= arr2[j] :
-            new_merge[k] = arr1[i]
-            k+=1, i +=1
-        else :
-            new_merge[k] = arr2[j]
-            k+=1, j +=1
+print(*merge_sort(matrix))
