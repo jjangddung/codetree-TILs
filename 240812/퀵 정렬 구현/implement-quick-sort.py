@@ -10,11 +10,11 @@ matrix = list(map(int, input().split()))
 # 피벗이 선택되면 먼저 구간의 맨 끝 원소와 꼭 교환해야함
 
 
-def quick_sort(arr,start,end) :
-    if len(arr) == 1 :
+def quick_sort(arr) :
+    if len(arr) <= 1 :
         return arr
     
-    pivot = end
+    pivot = arr[-1]
     new_arr1 = []
     new_arr2 = []
     for i in range(len(arr)-1) :
@@ -27,4 +27,4 @@ def quick_sort(arr,start,end) :
     return quick_sort(new_arr1) + [pivot] + quick_sort(new_arr2)
 
 
-print(quick_sort(matrix,0,n-1))
+print(*quick_sort(matrix))
