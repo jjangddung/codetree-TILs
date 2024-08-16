@@ -5,7 +5,7 @@ class stack :
     def push(self, item) :
         self.items.append(item)
     
-    def pop(self,item) :
+    def pop(self) :
         self.items.pop()
     
     def empty(self) :
@@ -28,7 +28,9 @@ class stack :
 front = stack()
 # back = stack() 
 
-sign = list(map(str, input().split()))
+sign = str(input())
+# print(len(sign))
+
 count = 0
 for i in range(len(sign)) :
     if i == 0 :
@@ -45,9 +47,11 @@ for i in range(len(sign)) :
             front.pop()
         
         else :
+            # print(i)
             print('No')
             count +=1
             break
 
+# print(*front.items)
 if count == 0 :
     print('Yes')
