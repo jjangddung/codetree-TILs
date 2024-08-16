@@ -54,4 +54,7 @@ for i in range(len(sign)) :
 
 # print(*front.items)
 if count == 0 :
-    print('Yes')
+    if front.empty() :
+        print('Yes')
+    else :
+        print('No')
