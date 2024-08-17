@@ -14,6 +14,7 @@ def counting(string) :
     depth = []
     n = 1
 
+
     for t in range(1,length) :
         if string[t] == string[t-1] :
             n +=1
@@ -41,9 +42,13 @@ def counting(string) :
 
 maxi = sys.maxsize
 
-for i in range(1,length) :
-    new_str = move(alpha,i)
-    num = counting(new_str)
-    maxi = min(num, maxi)
+if length == 1 :
+    print(2)
 
-print(maxi)
+else :
+    for i in range(1,length) :
+        new_str = move(alpha,i)
+        num = counting(new_str)
+        maxi = min(num, maxi)
+
+    print(maxi)
