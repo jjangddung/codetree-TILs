@@ -33,13 +33,19 @@ def boomb(r,c) :
 
 
 def filler() :
+    count = 0
     for i in range(n) :
         for j in range(n-1) :
+
             if grid[j][i] != 0 and grid[j+1][i] == 0 :
                 grid[j][i],grid[j+1][i] = grid[j+1][i] ,grid[j][i]
+                count +=1
+    return count
 
 
 boomb(r,c)
-filler()
+
+while filler() != 0 :
+    filler()
 for _ in grid:
     print(*_)
