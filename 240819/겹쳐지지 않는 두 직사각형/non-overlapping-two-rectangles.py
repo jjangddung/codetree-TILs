@@ -1,55 +1,54 @@
-#끝 점 좌표 4개를 임의로 정하기
-
-
 import sys
 
-input = sys.stdin.readline
-
-
+# x1,y1,x2,y2
 n,m = map(int, input().split())
 
-matrix = [list(map(int, input().split())) for _ in range(n)]
+grid = [list(map(int , input().split())) for _ in range(n)]
+
+def overlap(arr1,arr2) :
+    x1,y1,x2,y2 = arr1
+    x3,y3,x4,y4 = arr2
+
+    count = 0
+
+    for i in range(x1,x2+1):
+        for j in range(y1,y2+1) :
+            if x3 <= i <= x4 and y3 <= j <= y4 :
+                return True
+    
+    return False
 
 
-def change_grid(value,n,m) :
-    new_value = [value//m,value % m]
+def square_value(arr) :
+    x1,y1,x2,y2  = arr
+    total = 0
+    # count = 0
+    for i in range(x1,x2+1) :
+        for j in range(y1,y2+1) :
+            total += grid[i][j]
+        
+    
+    return total
 
-    return new_value
+maxi = -sys.maxsize
 
-def width_height(value_1,value_2) :
-    width = value_2[0] - value_1[0] +1
-    height = value_2[1] - value_1[1] +1
-
-    return [width,height]
-
-maxi  = -99999999999999999999999999999999999999
-
-for x_1,y_1 in zip (range(n), range(m)) :
-    for x_2, y_2 in zip(range(x_1,n), range(y_1, m)) :
-        for x_3,y_3 in zip (range(n), range(m)) :
-            for x_4, y_4 in zip(range(x_3,n), range(y_3, m)) :
-                new_matrix = [[0]*m  for _ in range(n)]
-                total = 0
-                count = 0
-
-                for p in range(x_1,x_2+1) :
-                    for q in range(y_1,y_2+1) :
-                        new_matrix[p][q] += 1
-
-                for p in range(x_3,x_4+1) :
-                    for q in range(y_3,y_4+1) :
-                        if new_matrix[p][q] != 0 :
-                            count +=1
-                        new_matrix[p][q] += 1
-                
-                if count != 0 :
-                    continue
-
-                for t in range(n) :
-                    for w in range(m) :
-                        if new_matrix[t][w] == 1 :
-                            total += matrix[t][w]
-
-                maxi = max(maxi,total)
+for i in range(n) :
+    for j in range(m) :
+        for k in range(i,n) :
+            for l in range(j,m) :
+                arr1 = [i,j,k,l]
+                for p in range(n) :
+                    for q in range(m):
+                        for r in range(p,n) :
+                            for t in range(q,m) :
+                                value = 0
+                                arr2 = [p,q,r,t]
+                                
+                                if not overlap(arr1,arr2) :
+                                    # print(arr1,arr2)
+                                    value += square_value(arr1)
+                                    value += square_value(arr2)
+                                    maxi = max(value,maxi)
+                                    # print(maxi)
 
 print(maxi)
