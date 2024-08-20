@@ -61,12 +61,12 @@ if m == 1 :
     print(0)
 else :
     while  answer[1] != 1 :
-        print("list: ", answer[0])
+        # print("list: ", answer[0])
         answer = group(answer[0])
-    
-    
+
+
     # print("answer: ", answer)
-    
+
     result = answer[0]
     print(len(result))
     for _ in result :
