@@ -25,7 +25,7 @@ def  merge(arr):
             if arr[i] != 0 :
                 new_lst.append(arr[i])
             i +=1
-    if arr[-1] != 0 :
+    if arr[2] != arr[-1]  and arr[-1]!= 0 :
         new_lst.append(arr[-1])
 
     if direct == 'R' or  direct == 'D' :
@@ -48,18 +48,21 @@ def plus_zero(direct,new_lst) :
         # print(direct)
     return new_lst
 
-def change(matrix) :
-    for i in range(4) :
-        for j in range(4) :
-            matrix[i][j] = matrix[j][i]
+def transpose(matrix):
+    for i in range(len(matrix)):
+        for j in range(i + 1, len(matrix[i])):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
     
     return matrix
 
 
 
 
+
 if direct == 'U' :
-    one,two,three,four = [grid[0][i] for i in range(4)],[grid[1][i] for i in range(4)],[grid[2][i] for i in range(4)],[grid[3][i] for i in range(4)]
+    one,two,three,four = [grid[i][0] for i in range(4)],[grid[i][1] for i in range(4)],[grid[i][2] for i in range(4)],[grid[i][3] for i in range(4)]
+    # print("checking", one,two,three,four)
+    one,two,three,four = merge(one),merge(two), merge(three),merge(four)
     
 
 elif direct == 'L' :
@@ -72,12 +75,14 @@ elif direct == 'R' :
     
 
 else :
-    one,two,three,four = [grid[0][i] for i in range(4)],[grid[1][i] for i in range(4)],[grid[2][i] for i in range(4)],[grid[3][i] for i in range(4)]
+    one,two,three,four = [grid[i][0] for i in range(4)],[grid[i][1] for i in range(4)],[grid[i][2] for i in range(4)],[grid[i][3] for i in range(4)]
+    one,two,three,four = merge(one),merge(two), merge(three),merge(four)
 
 grid = [one,two,three,four]
+# print(grid)
 if direct == "U" or direct == "D" :
-    grid = change(grid)
-
+    grid = transpose(grid)
+# 
 for g in grid :
     print(*g)
     
