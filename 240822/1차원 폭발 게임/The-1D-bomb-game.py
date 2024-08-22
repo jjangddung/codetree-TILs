@@ -23,14 +23,21 @@ new = 1
 
 while new != 0 :
     new = 0
-    for i in range(n) :
-        length = len(grid)
+    i  = 0
+    new_lst = []
+    length = len(grid)
+    while i < length :
         count = finding(i,length)
-        if count >= m:
-            grid = grid[:i] + grid[i+count:]
-            # print(grid)
-            new+=1
-            break
+        if count < m :
+            for t in range(count) :
+                new_lst.append(grid[i])
+        else :
+            new +=1
+        i += count
+    grid = new_lst
+    # print(grid)
+
+
 
 
 print(len(grid))
