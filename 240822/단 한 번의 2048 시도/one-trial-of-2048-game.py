@@ -12,10 +12,16 @@ direct = input()
 def  merge(arr):
     length = len(arr)
     new_lst = []
+    new_t = []
     i = 0
     if direct == 'R' or direct == 'D' :
         arr = arr[::-1]
-    
+    for a in arr :
+        if a != 0 :
+            new_t.append(a)
+    arr = new_t
+    print(arr)
+    length = len(arr)
     # print(arr)
     while i < length-1 :
         if arr[i] == arr[i+1] :
@@ -25,8 +31,8 @@ def  merge(arr):
             if arr[i] != 0 :
                 new_lst.append(arr[i])
             i +=1
-    if arr[2] != arr[-1]  and arr[-1]!= 0 :
-        new_lst.append(arr[-1])
+    if arr[length-2] != arr[length-1]  and arr[length-1]!= 0 :
+        new_lst.append(arr[length-1])
 
     if direct == 'R' or  direct == 'D' :
         new_lst = new_lst[::-1]
