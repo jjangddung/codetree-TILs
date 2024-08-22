@@ -33,7 +33,7 @@ def  merge(arr):
             if arr[i] != 0 :
                 new_lst.append(arr[i])
             i +=1
-    if i != 4 and arr[length-1]!= 0 :
+    if i != length and arr[length-1]!= 0 :
         new_lst.append(arr[length-1])
 
     if direct == 'R' or  direct == 'D' :
