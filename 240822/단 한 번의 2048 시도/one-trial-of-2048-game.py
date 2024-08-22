@@ -20,18 +20,20 @@ def  merge(arr):
         if a != 0 :
             new_t.append(a)
     arr = new_t
-    print(arr)
+    # print(arr)
     length = len(arr)
     # print(arr)
     while i < length-1 :
+        count = 0
         if arr[i] == arr[i+1] :
+            
             new_lst.append(2*arr[i])
             i +=2
         else :
             if arr[i] != 0 :
                 new_lst.append(arr[i])
             i +=1
-    if arr[length-2] != arr[length-1]  and arr[length-1]!= 0 :
+    if i != 4 and arr[length-1]!= 0 :
         new_lst.append(arr[length-1])
 
     if direct == 'R' or  direct == 'D' :
