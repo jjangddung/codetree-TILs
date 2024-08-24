@@ -32,7 +32,7 @@ for i in range(n) :
 # print(mini)
 
 
-if n != 1 :
+if m != 1 :
     for i in range(n) :
 
         if k-1 <= i < k-1+m :
