@@ -18,20 +18,23 @@ def transmition(grid) :
 
 transmition(grid)
 
-maxi = 0
+mini = 10000
 maxi_index = 0
 for i in range(n) :
-    total = sum(grid[i])
     if k-1 <= i < k-1+m :
-        if maxi < total :
-            maxi_index = i
-            maxi = total
-    
+        for l in range(n) :
+            if grid[i][l] != 0 :
+                if l-1 < mini :
+                    mini = l-1
+                break
+
+
+# print(mini)
 
 for i in range(n) :
     
     if k-1 <= i < k-1+m :
-        grid[i][n-1-maxi] =1
+        grid[i][mini] =1
 
 
 transmition(grid)
