@@ -32,16 +32,16 @@ for i in range(n) :
 # print(mini)
 
 
-if n != 0 :
+if n != 1 :
     for i in range(n) :
-        
+
         if k-1 <= i < k-1+m :
             grid[i][mini] =1
-    
-    
+
+
     transmition(grid)
-    
-    
+
+
         for g in grid :
             print(*g)
 else :
