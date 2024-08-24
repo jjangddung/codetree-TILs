@@ -31,8 +31,6 @@ for i in range(n) :
 
 # print(mini)
 
-if n == 0 :
-    mini = 0
 
 for i in range(n) :
     
@@ -42,5 +40,9 @@ for i in range(n) :
 
 transmition(grid)
 
-for g in grid :
-    print(*g)
+
+if n != 0 :
+    for g in grid :
+        print(*g)
+else :
+    print(1)
