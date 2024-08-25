@@ -29,8 +29,12 @@ for i in range(n) :
                 break
 
 
-# print(mini)
 
+
+if mini == 10000 :
+    mini = n-1
+
+# print(mini)
 
 if n != 1 :
     for i in range(n) :
