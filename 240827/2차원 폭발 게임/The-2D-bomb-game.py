@@ -97,6 +97,11 @@ for _ in range(k):
     # print(*grid)
 
 
+transmition(grid)
+grid = mat_boomb(grid)
+transmition(grid)
+
+
 result =  0
 
 for i in range(n) :
