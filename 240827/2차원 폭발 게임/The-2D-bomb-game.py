@@ -18,6 +18,7 @@ def boomb(arr) :
     length = len(arr)
     start_idx= 0
     new_lst = []
+    point = 0
 
 
     while start_idx < length :
@@ -36,6 +37,7 @@ def boomb(arr) :
                 if last_idx == length -1 :
                     # print(start_idx,new_lst)
                     if count >= m :
+                        point +=1
                         start_idx += count
                         break
                     else :
@@ -47,6 +49,7 @@ def boomb(arr) :
 
             else :
                 if count >= m :
+                    point +=1
                     start_idx += count 
                     break
 
@@ -58,15 +61,17 @@ def boomb(arr) :
 
     new_lst = [0]*(n-len(new_lst)) + new_lst
 
-    return new_lst
+    return [new_lst,point]
 
 def mat_boomb(grid) :
+    new_point = 0
     new_grid =[]
 
     for lst in grid :
-        new_lst = boomb(lst)
+        new_lst = boomb(lst)[0]
+        new_point+= boomb(lst)[1]
         new_grid.append(new_lst)
-    return new_grid
+    return [new_grid, new_point]
 
 def gravitiy(grid) :
     new_grid = []
@@ -86,20 +91,33 @@ def gravitiy(grid) :
 
 for _ in range(k):
     transmition(grid)
-    grid = mat_boomb(grid)
+    grid,point = mat_boomb(grid)[0],mat_boomb(grid)[1]
+    # print("grid: ", grid)
+    # print("point: ", point)
+    while point != 0 :
+        grid,point = mat_boomb(grid)[0],mat_boomb(grid)[1]
+        # print("point: ", point)
+        # print(grid)
+    # print("grid: ", grid)
     transmition(grid)
     mirror(grid)
     # transmition(grid)
     # transmition(grid)
     grid = gravitiy(grid)
+    # print("gravity: ", grid)
+    grid,point = mat_boomb(grid)[0],mat_boomb(grid)[1]
+    while point != 0 :
+        grid,point = mat_boomb(grid)[0],mat_boomb(grid)[1]
+        # print("point: ", point)
+        # print(grid)
     transmition(grid)
-    # grid = mat_boomb(grid)
     # print(*grid)
 
 
-transmition(grid)
-grid = mat_boomb(grid)
-transmition(grid)
+
+
+
+
 
 
 result =  0
