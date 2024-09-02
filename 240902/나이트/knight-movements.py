@@ -54,7 +54,10 @@ result = step[r2-1][c2-1]
 # print(*step)
 
 if result == 0 :
-    print(-1)
+    if r1==r2 and c1 == c2 :
+        print(0)
+    else :
+        print(-1)
 
 else :
     print(result)
