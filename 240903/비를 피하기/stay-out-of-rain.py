@@ -2,6 +2,8 @@ from collections import deque
 
 n,h,m  = map(int, input().split())
 
+#비가  안내리는 곳에서 사람의 위치를 뿌려줌
+
 
 grid = [
     list(map(int, input().split()))
@@ -38,6 +40,13 @@ def bfs() :
             if can_go(new_x,new_y)  and  not visited[new_x][new_y] :
                 push(new_x,new_y,step[x][y] +1 )
 
+human = []
+
+for i in range(n) :
+    for j in range(n) :
+        if grid[i][j] == 2 :
+            human.append([i,j])
+
 no_rain = []
 
 for i in range(n) :
@@ -45,35 +54,36 @@ for i in range(n) :
         if grid[i][j] == 3 :
             no_rain.append([i,j])
 
-for i in range(n) :
-    for j in range(n) :
-        if grid[i][j] != 2 :
-            continue
-        q= deque()
-        visited = [
-            [False for _ in range(n)]
-            for i in range(n)
-        ]
+for pos in no_rain :
+    x,y =pos[0],pos[1]
 
-        step = [
-            [0 for _ in range(n)]
-            for i in range(n)
-        ]
-        push(i,j,0)
-        bfs()
-        maxi = 1000000000
-        # for s in step :
-            # print(*s)
-        # print("--------------------------------")
+    q= deque()
+    visited = [
+        [False for _ in range(n)]
+        for i in range(n)
+    ]
+    step = [
+        [0 for _ in range(n)]
+        for i in range(n)
+    ]
+    push(x,y,0)
+    bfs()
+    maxi = 1000000000
 
-        for v in no_rain :
-            result = step[v[0]][v[1]]
-            if result > 0 :
-                maxi = min(result, maxi)
-        if maxi == 1000000000 :
-            answer[i][j] = -1
+    for h_pos in human :
+        hx,hy = h_pos[0],h_pos[1]
+        
+        if answer[hx][hy] <= 0 :
+            if step[hx][hy] != 0 :
+                answer[hx][hy] = step[hx][hy]
+            
+            else :
+                answer[hx][hy] = -1
+        
         else :
-            answer[i][j] = maxi
+            answer[hx][hy] = min(answer[hx][hy], step[hx][hy])
+        
+
 
 for ans in answer :
     print(*ans)
