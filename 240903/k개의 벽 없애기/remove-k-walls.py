@@ -37,7 +37,7 @@ def in_range(x,y) :
     return 0<=x < n and 0 <=y < n 
 
 def can_go(x,y) :
-    if in_range(x,y) and new_grid[x][y] == 0 :
+    if in_range(x,y) and grid[x][y] == 0 :
         return True
     
     return False
@@ -57,43 +57,44 @@ def bfs() :
 result = sys.maxsize
 
 
+visited = [
+            [False for _ in range(n)]
+            for _ in range(n)
+        ]
 
+step = [
+    [0 for _ in range(n)]
+    for _ in range(n)
+]
+
+q = deque()
 
 
 def backtracking(start,num) : # 서로 다른 n개에서 중복없이 k개 뽑기
     global result
-    global visited
-    global step
-    global q
-    global new_grid
-    if num == k :
-        new_lst = copy.deepcopy(ans)
-        new_grid = copy.deepcopy(grid)
-        q = deque()
-        visited = [
-            [False for _ in range(n)]
-            for _ in range(n)
-        ]
-        step = [
-            [0 for _ in range(n)]
-            for _ in range(n)
-        ]
+    if start == len(wall_list) :
+        if num == k :
+            for i in range(n) :
+                for j in range(n) :
+                    visited[i][j] = False
+                    step[i][j] = 0
+            push(r1,c1,0)
+            bfs()
 
-        for dest_pos in new_lst :
-            dest_x, dest_y = wall_list[dest_pos]
-            new_grid[dest_x][dest_y] = 0
+            if step[r2][c2] != 0 :
+                result = min(result,step[r2][c2])
 
-        push(r1,c1,0)
-        bfs()
-        if step[r2][c2] != 0 : 
-            result = min(result,step[r2][c2])
-        # print(ans)
         return 
-    
-    for i in range(start,count) :
-        ans.append(i)
-        backtracking(i+1,num+1)
-        ans.pop()
+
+    x,y = wall_list[start]
+    grid[x][y] = 0
+    backtracking(start+1,num +1) # i에 해당하는 idx 를 추가함
+    grid[x][y] = 1
+
+    backtracking(start+1,num) # i에 해당하는 idx를 추가하지 않음
+ 
+
+
 
 backtracking(0,0)
 
