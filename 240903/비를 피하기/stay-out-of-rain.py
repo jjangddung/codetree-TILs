@@ -24,9 +24,8 @@ def in_range(x,y) :
     return 0 <= x < n and 0 <= y < n
 
 def can_go(x,y) :
-    if in_range(x,y) :
-        if grid[x][y] == 0 or grid[x][y] == 3 :
-            return True
+    if in_range(x,y) and grid[x][y] != 1 :
+        return True
     return False
 
 
@@ -62,12 +61,16 @@ for i in range(n) :
         ]
         push(i,j,0)
         bfs()
-        maxi = -1
+        maxi = 1000000000
+        # for s in step :
+            # print(*s)
+        # print("--------------------------------")
 
         for v in no_rain :
             result = step[v[0]][v[1]]
-            maxi = max(result, maxi)
-        if maxi == 0 :
+            if result > 0 :
+                maxi = min(result, maxi)
+        if maxi == 1000000000 :
             answer[i][j] = -1
         else :
             answer[i][j] = maxi
