@@ -73,15 +73,13 @@ for pos in no_rain :
     for h_pos in human :
         hx,hy = h_pos[0],h_pos[1]
         
-        if answer[hx][hy] <= 0 :
+        if answer[hx][hy] == -1 :
             if step[hx][hy] != 0 :
                 answer[hx][hy] = step[hx][hy]
-            
-            else :
-                answer[hx][hy] = -1
         
         else :
-            answer[hx][hy] = min(answer[hx][hy], step[hx][hy])
+            if step[hx][hy] != 0 :
+                answer[hx][hy] = min(answer[hx][hy], step[hx][hy])
         
 
 
