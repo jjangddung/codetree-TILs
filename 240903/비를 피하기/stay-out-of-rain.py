@@ -32,7 +32,7 @@ def can_go(x,y) :
 
 
 def bfs() :
-    dxs,dys = [-1,0,1,0] , [0,1,0,-1] # 상하좌우
+    dxs,dys = [-1,0,1,0] , [0,1,0,-1] # 상우하좌
     while q :
         x,y = q.popleft()
         for dx, dy in zip(dxs,dys) :
