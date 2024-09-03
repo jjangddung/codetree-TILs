@@ -46,6 +46,7 @@ for i in range(n) :
     for j in range(n) :
         if grid[i][j] == 2 :
             human.append([i,j])
+            answer[i][j] = -1
 
 no_rain = []
 
@@ -68,7 +69,6 @@ for pos in no_rain :
     ]
     push(x,y,0)
     bfs()
-    maxi = 1000000000
 
     for h_pos in human :
         hx,hy = h_pos[0],h_pos[1]
