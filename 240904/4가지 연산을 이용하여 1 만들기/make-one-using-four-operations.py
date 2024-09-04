@@ -47,6 +47,10 @@ def calculate(num,s) :
             num = 3000000
 
     return num
+
+# def can_go(number) :
+    # if 0 < number and number < 3000000 :
+
         
     
 def bfs() :
@@ -59,6 +63,6 @@ def bfs() :
             if 0 <= new_num < 3000000 and not visited[new_num] :
                 push(new_num,step[number]+1)
 
-push(11,0)
+push(n,0)
 bfs()
 print(step[1])
