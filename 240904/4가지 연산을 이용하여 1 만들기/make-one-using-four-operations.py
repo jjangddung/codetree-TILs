@@ -13,11 +13,11 @@ n = int(input())
 
 q = deque()
 
-visited = [False]*3000001
+visited = [False]*2*n
 
 
 
-step = [0]*3000001
+step = [0]*2*n
 
 
 def push(num,s) :
@@ -60,7 +60,7 @@ def bfs() :
         for cal in sign :
             new_num = calculate(number,cal)
 
-            if 0 <= new_num < 3000000 and not visited[new_num] :
+            if 0 <= new_num < 2*n and not visited[new_num] :
                 push(new_num,step[number]+1)
 
 push(n,0)
