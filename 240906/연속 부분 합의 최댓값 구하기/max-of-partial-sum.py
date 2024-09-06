@@ -18,7 +18,7 @@ dp[0] = 0
 
 
 maxi = INT_MIN
-for i in range(2,n+1) :
+for i in range(1,n+1) :
     dp[i] = max(dp[i-1]+grid[i], grid[i])
     # print(dp[i])
     maxi = max(maxi,dp[i])
