@@ -20,7 +20,9 @@ back_lst = []
 ans_lst = []
 q = deque()
 def backtracking(num,t) :
- 
+
+    if t > k :
+        return 
         
     if num == n**2 :
         if len(back_lst) == k :
