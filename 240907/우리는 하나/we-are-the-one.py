@@ -19,19 +19,25 @@ grid= [
 back_lst = []
 ans_lst = []
 q = deque()
-def backtracking(num,t) :
-    if num == n**2 :
-        if len(back_lst) == k :
+def backtracking(num, t):
+    # 더 이상 선택할 수 있는 원소의 개수가 k - t보다 작으면 탐색 중단
+    if len(back_lst) + (n**2 - num) < k:
+        return
+    
+    # 종료 조건: 모든 원소를 탐색했을 때
+    if num == n**2:
+        if len(back_lst) == k:
             ans = copy.deepcopy(back_lst)
             ans_lst.append(ans)
-            # print(back_lst)
         return
-            
     
+    # 원소를 선택한 경우
     back_lst.append(num)
-    backtracking(num+1,t+1)
+    backtracking(num + 1, t + 1)
+    
+    # 원소를 선택하지 않은 경우
     back_lst.pop()
-    backtracking(num+1,t)
+    backtracking(num + 1, t)
 
 backtracking(0,0)
 
@@ -47,9 +53,11 @@ def can_go(x1,y1,x2,y2) :
     return False
 
 def push(x,y,s) :
+
     step[x][y] = s
     visited[x][y] = True
     q.append((x,y))
+
 
 
 
