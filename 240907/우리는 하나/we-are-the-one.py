@@ -24,11 +24,12 @@ def backtracking(num,t) :
     if t > k :
         return 
         
-    if len(back_lst) == k :
-        ans = copy.deepcopy(back_lst)
-        ans_lst.append(ans)
-        # print(back_lst)
-    return
+    if num == n**2 :
+        if len(back_lst) == k :
+            ans = copy.deepcopy(back_lst)
+            ans_lst.append(ans)
+            # print(back_lst)
+        return
             
     
     back_lst.append(num)
