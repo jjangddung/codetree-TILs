@@ -24,12 +24,11 @@ def backtracking(num,t) :
     if t > k :
         return 
         
-    if num == n**2 :
-        if len(back_lst) == k :
-            ans = copy.deepcopy(back_lst)
-            ans_lst.append(ans)
-            # print(back_lst)
-        return
+    if len(back_lst) == k :
+        ans = copy.deepcopy(back_lst)
+        ans_lst.append(ans)
+        # print(back_lst)
+    return
             
     
     back_lst.append(num)
@@ -68,7 +67,6 @@ def bfs() :
             new_x, new_y = x + dx, y+ dy
             if can_go(x,y,new_x,new_y) and not visited[new_x][new_y] :
                 push(new_x,new_y,step[x][y]+1)
-                bfs()
 final  = 0
 
 for value in ans_lst :
