@@ -29,9 +29,9 @@ def backtracking(num,t) :
             
     
     back_lst.append(num)
-    backtracking(num+1,t)
-    back_lst.pop()
     backtracking(num+1,t+1)
+    back_lst.pop()
+    backtracking(num+1,t)
 
 backtracking(0,0)
 
