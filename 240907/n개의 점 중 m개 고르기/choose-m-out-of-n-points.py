@@ -36,14 +36,19 @@ backtracking(0,0)
 
 # print(ans_lst)
 
-result = 0
+result = sys.maxsize
 
 for ans in ans_lst :
-    p1,p2 = ans
-    p1_x, p1_y = grid[p1]
-    p2_x, p2_y = grid[p2]
+    length = len(ans)
+    semi = 0
 
-    distance = (p1_x-p2_x)**2+ (p1_y-p2_y)**2
-    result = max(distance,result)
+    for i in range(length) :
+        for j in range(i, length) :
+            p1  = grid[i]
+            p2 =  grid[j]
+            distance = (p1[0]-p2[0])**2 + (p1[1]-p2[1])**2
+            semi = max(distance,semi)
+    result = min(semi,result)
+            
 
 print(result)
