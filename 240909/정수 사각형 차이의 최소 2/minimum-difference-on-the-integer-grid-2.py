@@ -52,7 +52,13 @@ for i in range(1,n) :
 
         dp[i][j] = min(dp[i-1][j],dp[i][j-1])
 
-        if dp[i][j] == dp[i][j-1] :
+        if dp[i-1][j] == dp[i][j-1] :
+            # print("i,j: ",i,j)
+            mini[i][j] = max(mini[i][j-1], mini[i-1][j])
+            mini[i][j] = min(mini[i][j],grid[i][j])
+        
+
+        elif dp[i][j] == dp[i][j-1] :
             mini[i][j] = min(grid[i][j],mini[i][j-1])
         
         else :
@@ -61,6 +67,14 @@ for i in range(1,n) :
         dp[i][j] = max(dp[i][j],grid[i][j])
 
 
+
+
+
+# print(*dp, sep = "\n")
+# 
+# print()
+# print()
+# print(*mini, sep = "\n")
 
 result = dp[n-1][n-1] - mini[n-1][n-1]
 
