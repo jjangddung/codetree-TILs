@@ -60,7 +60,7 @@ def initialize(mini) :
 final = sys.maxsize
 
 for mini in range(maximum,minimum-1,-1) :
-    if grid[0][0] < mini :
+    if grid[0][0] < mini or grid[n-1][n-1] < mini :
         continue
 
     # if grid[i][j] == 127 :
@@ -83,7 +83,7 @@ for mini in range(maximum,minimum-1,-1) :
 
     initialize(mini)
 
-    # if mini == 2 :
+    # if mini == 77 :
         # for d in dp :
             # print(*d)
 
@@ -111,6 +111,8 @@ for mini in range(maximum,minimum-1,-1) :
             # print(*d)
     # 
     if mini > dp[n-1][n-1] :
+        continue
+    if dp[n-1][n-1] == 127 :
         continue
 
     result = dp[n-1][n-1] - mini
