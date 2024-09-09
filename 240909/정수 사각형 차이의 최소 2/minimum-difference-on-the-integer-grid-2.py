@@ -1,5 +1,5 @@
 import sys
-
+import copy
 
 n = int(input())
 
@@ -7,8 +7,6 @@ grid =[
     list(map(int, input().split()))
     for _ in range(n)
 ]
-
-dxs, dys = [1,0],[0,1] # 하 우
 
 
 dp = [
@@ -18,64 +16,79 @@ dp = [
 
 
 
+maximum = 0
+minimum = sys.maxsize
 
-
-dp[0][0] = grid[0][0]
-
-
-# dp를 3차원으로 구현
-
-# 최댓값을 최소로 하는 쪽으로 움직임
-
-mini = [
-    [101]*n
-    for _ in range(n)
-]
-
-mini[0][0]= grid[0][0]
+for i in range(n) :
+    for j in range(n) :
+        maximum = max(maximum,grid[i][j])
+        minimum = min(minimum,grid[i][j])
 
 
 
-for i in range(1,n) :
-    dp[0][i] = max(dp[0][i-1],grid[0][i])
-    mini[0][i] = min(mini[0][i-1],grid[0][i])
+def in_range(x,y) :
+    return  0 <= x < n and 0 <= y < n
 
 
-for i in range(1,n) :
-    dp[i][0] = max(dp[i-1][0],grid[i][0])
-    mini[i][0] = min(mini[i-1][0],grid[i][0])
 
-minimum_value = sys.maxsize
+def checking(x,y) :
+    if grid[x][y] < mini :
+        return False
+    
+    return True
 
-for i in range(1,n) :
-    for j in range(1,n):
 
-        dp[i][j] = min(dp[i-1][j],dp[i][j-1])
-
-        if dp[i-1][j] == dp[i][j-1] :
-            # print("i,j: ",i,j)
-            mini[i][j] = max(mini[i][j-1], mini[i-1][j])
-            mini[i][j] = min(mini[i][j],grid[i][j])
-        
-
-        elif dp[i][j] == dp[i][j-1] :
-            mini[i][j] = min(grid[i][j],mini[i][j-1])
+def initialize(mini) :
+    for i in range(1,n) :
+        if grid[0][i] > mini :
+            dp[0][i] = max(dp[0][i-1],grid[0][i])
         
         else :
-            mini[i][j] = min(grid[i][j], mini[i-1][j])
+            dp[0][i] = 127
+        
+        if grid[i][0] > mini :
+            dp[i][0] = max(dp[i-1][0],grid[i][0])
+        
+        else :
+            dp[i][0] = 127
+        
+    
 
-        dp[i][j] = max(dp[i][j],grid[i][j])
 
 
 
+final = sys.maxsize
 
+for mini in range(maximum,minimum-1,-1) :
+    if grid[0][0] < mini :
+        continue
 
-# print(*dp, sep = "\n")
-# 
-# print()
-# print()
-# print(*mini, sep = "\n")
+    # if grid[i][j] == 127 :
+        # continue
+    
+    for i in range(n) :
+        for j in range(n) :
+            if grid[i][j] < mini :
+                dp[i][j] = 127
+            
+            else :
+                dp[i][j] = -1
 
-result = dp[n-1][n-1] - mini[n-1][n-1]
+    initialize(mini)
 
-print(result)
+    for i in range(n) :
+        for j in range(n) :
+
+            if grid[i][j] == 127 :
+                dp[i][j] == 127
+                continue
+            dp[i][j] = min(dp[i-1][j],dp[i][j-1])
+            
+            dp[i][j] = max(dp[i][j],grid[i][j])
+    
+    if mini > dp[n-1][n-1] :
+        continue
+
+    final = min(final,dp[n-1][n-1]-mini)
+
+print(final)
