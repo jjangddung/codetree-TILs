@@ -43,4 +43,4 @@ for i in range(1,n) :
         answer[i][j] = max(answer[i][j],grid[i][j])
 
 
-print(answer[n-1][m-1])
+print(answer[n-1][n-1])
