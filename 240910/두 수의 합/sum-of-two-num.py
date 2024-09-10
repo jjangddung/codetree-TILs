@@ -1,35 +1,21 @@
-n,k = map(int, input().split())
+# 변수 선언 및 입력:
+n, k = tuple(map(int, input().split()))
+arr = list(map(int, input().split()))
 
+count = dict()
 
-grid = list(map(int, input().split()))
-grid.sort()
+ans = 0
+# 배열을 앞에서부터 순회하며 쌍을 만들어줍니다.
+for elem in arr:
+    diff = k - elem
+    # 가능한 모든 쌍의 수를 세어줍니다.
+    if diff in count:
+        ans += count[diff]
 
-d = {}
+    # 현재 숫자의 개수를 하나 증가시켜줍니다.
+    if elem in count:
+        count[elem] += 1
+    else:
+        count[elem] = 1
 
-
-for i in range(n) :
-    
-    if not grid[i] in d :
-        d[grid[i]] = 1
-    
-    else :
-        d[grid[i]] +=1
-    
-
-
-count =  0
-
-for v in d :
-    if k-v not in d :
-        continue
-    
-    if k-v < v :
-        continue
-    
-    elif k-v == v :
-        count += (d[v]*(d[v]-1)//2)
-    
-    else :
-        count  += d[v]* d[k-v]
-
-print(count)
+print(ans)
