@@ -27,7 +27,7 @@ for v in d :
         continue
     
     elif k-v == v :
-        count += (d[v]*(d[v]-1)/2)
+        count += (d[v]*(d[v]-1)//2)
     
     else :
         count  += d[v]* d[k-v]
