@@ -46,7 +46,7 @@ for i in d :
             elif i == j ==  k :
                 if d[i] < 3 :
                     continue
-                count += d[i]*d[i-1]*d[i-2]//6
+                count += d[i]*(d[i]-1)*(d[i]-2)//6
             
             else :
                 count += d[i]*d[j]*d[k]
