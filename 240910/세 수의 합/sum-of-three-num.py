@@ -18,7 +18,7 @@ for i in range(n) :
         d[v] +=1
 
 
-print(d)
+# print(d)
 # i,j,k 세 가지 value 뽑기
 count = 0
 for i in d :
