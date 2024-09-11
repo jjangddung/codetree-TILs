@@ -48,7 +48,7 @@ for q in a :
             for r in d :
                 if q + w+ e+ r != 0 :
                     continue
-                count += 1
+                count += a[q]*b[w]*c[e]*d[r]
                 # print(q,w,e,r)
 
 print(count)
