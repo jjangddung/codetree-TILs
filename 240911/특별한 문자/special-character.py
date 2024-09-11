@@ -21,7 +21,7 @@ for v in d :
         total.append(v)
 
 if len(total) != 0 :
-    print(*total, sep = " ")
+    print(total[0], sep = " ")
 
 else :
     print("None")
