@@ -16,7 +16,7 @@ maxi = -sys.maxsize
 
 # print(s)
 
-for t in range(2,n+1) :
+for t in range(k,n+1) :
     result = s[t] - s[t-k]
     # print(result)
     maxi = max(result,maxi)
