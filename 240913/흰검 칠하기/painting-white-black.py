@@ -42,6 +42,9 @@ for _ in range(n) :
 
                         else :
                             d[i] = 0
+                    
+                    else :
+                        d[i] = 0
                 
 
     else :
@@ -58,9 +61,12 @@ for _ in range(n) :
                     d[i] = 1
                 else :
                     d_black[i] +=1
-                    if d_white[i] >= 2 and d_black[i] >= 2:
-                        d[i] = 2
+                    if i in d_white :
+                        if d_white[i] >= 2 and d_black[i] >= 2:
+                            d[i] = 2
 
+                        else :
+                            d[i] = 1
                     else :
                         d[i] = 1
                 
