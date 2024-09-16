@@ -1,5 +1,5 @@
 import sys
-
+# sys.setrecursionlimit(10**6)
 
 n = int(input())
 
@@ -41,8 +41,21 @@ def making_dp(mid,length,new_lst) :
     return False
     
 
-def backtracking(num,t) :
+def backtracking(num,t,cur_sum) :
+
+    
     global value
+
+    
+
+    # print('hi: ', num,t)
+
+
+    if 2*cur_sum >= total_sum :
+        return 
+    
+    if t > m :
+        return 
     
     if num == n :
         if t == m :
@@ -73,13 +86,13 @@ def backtracking(num,t) :
         return 
     
     ans.append(num)
-    backtracking(num+1,t+1)
+    backtracking(num+1,t+1,cur_sum + lst[num])
     ans.pop()
-    backtracking(num+1,t)
+    backtracking(num+1,t,cur_sum)
 
 
 for i in range(0,n+1) :
     m = i
-    backtracking(0,0)
+    backtracking(0,0,0)
 
 print(value)
