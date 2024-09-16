@@ -1,49 +1,65 @@
 import sys
-import threading
 
-def main():
-    import sys
-    input = sys.stdin.readline
+INT_MIN = -sys.maxsize
+OFFSET = 100000
 
-    n = int(input())
-    nums = list(map(int, input().split()))
-    total_sum = sum(nums)
-    OFFSET = total_sum  # sum_diff의 음수 값을 처리하기 위한 오프셋
+# 변수 선언 및 입력:
+n = int(input())
+arr = [0] + list(map(int, input().split()))
 
-    MAX_SUM_DIFF = 2 * OFFSET + 1
-    dp_prev = [-1] * MAX_SUM_DIFF  # dp[sum_diff + OFFSET] = max_sum_A
-    dp_prev[OFFSET] = 0  # sum_diff = 0일 때, sum_A = 0
+# 만들 수 있는 최대 합을 계산합니다.
+m = sum(arr)
 
-    for num in nums:
-        dp_curr = dp_prev[:]
-        for sum_diff in range(-OFFSET, OFFSET + 1):
-            idx = sum_diff + OFFSET
-            if dp_prev[idx] >= 0:
-                sum_A = dp_prev[idx]
+# dp[i][j] : i번째 수까지 고려헀을 떄
+#            그룹 A 합 - 그룹 B 합을 j라 했을 때
+#            만들 수 있는 최대 그룹 A의 합
+dp = [
+    [0] * (m + 1 + OFFSET)
+    for _ in range(n + 1)
+]
 
-                # 그룹 A에 num을 추가
-                new_sum_diff = sum_diff + num
-                new_idx = new_sum_diff + OFFSET
-                new_sum_A = sum_A + num
-                if dp_curr[new_idx] < new_sum_A:
-                    dp_curr[new_idx] = new_sum_A
 
-                # 그룹 B에 num을 추가
-                new_sum_diff = sum_diff - num
-                new_idx = new_sum_diff + OFFSET
-                new_sum_A = sum_A  # sum_A는 그대로
-                if dp_curr[new_idx] < new_sum_A:
-                    dp_curr[new_idx] = new_sum_A
+def initialize():
+    # 최대를 구하는 문제이므로
+    # 초기값을 INT_MIN으로 넣어줍니다.
+    for i in range(n + 1):
+        for j in range(-m, m + 1):
+            dp[i][j + OFFSET] = INT_MIN
 
-                # 그룹 C에 num을 추가 (sum_diff와 sum_A 변화 없음)
-                # 이미 dp_curr에 현재 상태가 있으므로 업데이트 불필요
+    # 초기 조건은
+    # 아직 아무런 수도 고른적이 없는 경우이므로 
+    # 0번째 수까지 고려하여
+    # 그룹 A 합 - 그룹 B 합이 0이고 
+    # 그룹 A의 합이 0인 경우에 대한 정보 입니다.
+    dp[0][0 + OFFSET] = 0
 
-        dp_prev = dp_curr  # dp_prev를 업데이트
 
-    result = dp_prev[OFFSET]  # sum_diff = 0일 때의 max_sum_A
-    if result == 0:
-        print(0)
-    else:
-        print(result)
+def update(i, j, prev_i, prev_j, val):
+    # 불가능한 경우 패스합니다.
+    if prev_j < -m or prev_j > m or dp[prev_i][prev_j + OFFSET] == INT_MIN:
+        return
+    
+    dp[i][j + OFFSET] = max(dp[i][j + OFFSET], dp[prev_i][prev_j + OFFSET] + val)
 
-threading.Thread(target=main).start()
+
+initialize()
+
+# 점화식에 따라 값을 채워줍니다.
+for i in range(1, n + 1):
+    for j in range(-m, m + 1):
+        # Case 1. 그룹 A에 i번째 원소를 추가하여 그룹A-그룹B가 j가 된 경우
+        #         dp[i - 1][j - arr[i]] + arr[i] -> dp[i][j]
+        update(i, j, i - 1, j - arr[i], arr[i])
+
+        # Case 2. 그룹 B에 i번째 원소를 추가하여 그룹A-그룹B가 j가 된 경우
+        #         dp[i - 1][j + arr[i]] -> dp[i][j]
+        update(i, j, i - 1, j + arr[i], 0)
+
+        # Case 3. 그룹 C에 i번째 원소를 추가하여 그룹A-그룹B가 j가 된 경우
+        #         dp[i - 1][j] -> dp[i][j]
+        update(i, j, i  - 1, j, 0)
+
+# n개의 수를 고려하여
+# 그룹A-그룹B가 0이 된 경우 중
+# 가능한 그룹A 합의 최대값이 답이 됩니다.
+print(dp[n][0 + OFFSET])
