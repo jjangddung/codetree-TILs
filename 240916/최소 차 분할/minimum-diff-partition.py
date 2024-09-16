@@ -35,7 +35,9 @@ for i in range(1,n+1) :
 
         
         if dp[i][j] :
-            result = min(abs(total_sum/2-j), result)
+            result1 = total_sum- j
+
+            result = min(abs(result1 - j), result)
 
 
 print(int(result))
