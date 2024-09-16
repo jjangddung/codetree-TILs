@@ -1,102 +1,49 @@
 import sys
-# sys.setrecursionlimit(10**6)
+import threading
 
-n = int(input())
+def main():
+    import sys
+    input = sys.stdin.readline
 
-lst = list(map(int, input().split()))
+    n = int(input())
+    nums = list(map(int, input().split()))
+    total_sum = sum(nums)
+    OFFSET = total_sum  # sum_diff의 음수 값을 처리하기 위한 오프셋
 
-# lst= sorted(lst)
+    MAX_SUM_DIFF = 2 * OFFSET + 1
+    dp_prev = [-1] * MAX_SUM_DIFF  # dp[sum_diff + OFFSET] = max_sum_A
+    dp_prev[OFFSET] = 0  # sum_diff = 0일 때, sum_A = 0
 
-total_sum = sum(lst)
+    for num in nums:
+        dp_curr = dp_prev[:]
+        for sum_diff in range(-OFFSET, OFFSET + 1):
+            idx = sum_diff + OFFSET
+            if dp_prev[idx] >= 0:
+                sum_A = dp_prev[idx]
 
+                # 그룹 A에 num을 추가
+                new_sum_diff = sum_diff + num
+                new_idx = new_sum_diff + OFFSET
+                new_sum_A = sum_A + num
+                if dp_curr[new_idx] < new_sum_A:
+                    dp_curr[new_idx] = new_sum_A
 
-ans = []
+                # 그룹 B에 num을 추가
+                new_sum_diff = sum_diff - num
+                new_idx = new_sum_diff + OFFSET
+                new_sum_A = sum_A  # sum_A는 그대로
+                if dp_curr[new_idx] < new_sum_A:
+                    dp_curr[new_idx] = new_sum_A
 
-value = 0
+                # 그룹 C에 num을 추가 (sum_diff와 sum_A 변화 없음)
+                # 이미 dp_curr에 현재 상태가 있으므로 업데이트 불필요
 
+        dp_prev = dp_curr  # dp_prev를 업데이트
 
-def making_dp(mid,length,new_lst) :
-    dp = [
-        [False]*(mid//2+1)
-        
-        for _ in range(length+1)
-    ]
+    result = dp_prev[OFFSET]  # sum_diff = 0일 때의 max_sum_A
+    if result == 0:
+        print(0)
+    else:
+        print(result)
 
-    for i in range(length) :
-        dp[i][0] = True
-    
-
-    for i in range(1,length+1) :
-        for j in range(1,mid//2+1) :
-            if new_lst[i-1] <= j :
-                dp[i][j] = dp[i-1][j] or dp[i-1][j-new_lst[i-1]]
-            
-            else :
-                dp[i][j] = dp[i-1][j]
-            
-            if j == mid//2 :
-                if dp[i][j] :
-                    return True
-    
-    return False
-    
-
-def backtracking(num,t,cur_sum) :
-
-    
-    global value
-
-    
-
-    # print('hi: ', num,t)
-
-
-    if 2*cur_sum >= total_sum :
-        return 
-    
-    if t > m :
-        return 
-    
-    if num == n :
-        if t == m :
-            new_lst = []
-
-            for v in range(n) :
-                if v in ans :
-                    continue
-                new_lst.append(lst[v])
-            
-            mid = sum(new_lst)
-            # print(new_lst)
-            # print("mid: ", mid)
-
-            if mid % 2  != 0 :
-                return 
-
-            if 2*value >= mid :
-                return
-
-            
-            if value == total_sum//2 :
-                return 
-
-            
-            length = len(new_lst)
-            if making_dp(mid, length,new_lst) :
-                # print('here!')
-                # print()
-                value = max(value,mid//2)
-
-        return 
-    
-    ans.append(num)
-    backtracking(num+1,t+1,cur_sum + lst[num])
-    ans.pop()
-    backtracking(num+1,t,cur_sum)
-
-
-for i in range(0,n+1) :
-    m = i
-    backtracking(0,0,0)
-
-print(value)
+threading.Thread(target=main).start()
