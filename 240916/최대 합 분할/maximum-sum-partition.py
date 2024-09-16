@@ -5,7 +5,7 @@ n = int(input())
 
 lst = list(map(int, input().split()))
 
-lst= sorted(lst)
+# lst= sorted(lst)
 
 total_sum = sum(lst)
 
@@ -75,6 +75,10 @@ def backtracking(num,t,cur_sum) :
 
             if 2*value >= mid :
                 return
+
+            
+            if value == total_sum//2 :
+                return 
 
             
             length = len(new_lst)
