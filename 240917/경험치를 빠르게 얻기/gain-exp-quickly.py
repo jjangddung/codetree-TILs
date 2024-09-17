@@ -68,4 +68,8 @@ for i in range(1,n+1) :
 # print(dp)  
 # for i in range(n+1) :
     # print(dp[i][13])
-print(value_time)
+if value_time == INT_MIN :
+    print(-1) 
+
+else :
+    print(value_time)
