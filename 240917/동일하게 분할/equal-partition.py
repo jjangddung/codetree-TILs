@@ -53,7 +53,7 @@ for i in range(1,n+1) :
         update(i,j,i-1,j+arr[i],0)
 
 
-if dp[n][0+OFFSET] ==0 :
+if dp[n][0+OFFSET] > 0 :
     print("Yes")
 
 else :
