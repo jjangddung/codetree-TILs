@@ -8,7 +8,7 @@ n = int(input())
 grid = [0] + list(map(int, input().split()))
 
 
-OFFSET = 1000
+OFFSET = 100000
 
 m = sum(grid)
 
@@ -24,7 +24,7 @@ def init() :
             dp[i][j+ OFFSET] =  INT_MIN
 
     
-    dp[0][0 + OFFSET] = INT_MIN
+    dp[0][0 + OFFSET] = 0
 
 
 
