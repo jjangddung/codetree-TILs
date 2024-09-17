@@ -68,7 +68,7 @@ for i in range(1,n+1) :
 # print(dp)  
 # for i in range(n+1) :
     # print(dp[i][13])
-if value_time == INT_MIN :
+if value_time == sys.maxsize :
     print(-1) 
 
 else :
