@@ -96,7 +96,8 @@ for j in range(m) :
             it = it.next
     
     elif command == 'D' :
-        l.erase(it)
+        if it != l.end():
+            l.erase(it)
     
     elif command == "P" :
         l.insert(it,value)
