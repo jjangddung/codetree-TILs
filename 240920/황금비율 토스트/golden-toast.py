@@ -88,10 +88,12 @@ for j in range(m) :
 
     # print(command, value)
     if command == 'L' :
-        it = it.prev
+        if it != l.begin() :
+            it = it.prev
     
     elif  command == 'R' :
-        it = it.next
+        if it != l.end() :
+            it = it.next
     
     elif command == 'D' :
         l.erase(it)
