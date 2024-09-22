@@ -22,7 +22,10 @@ for i in range(1, n + 1):
             dp[i][j] = max(dp[i][j], dp[i - 2][j] + grid[i])
 
         # 최대값 업데이트
-        maxi = max(maxi, dp[i][j])
+        
+        if i == n :
+            maxi = max(maxi, dp[i][j])
+
 
 # print(dp)
 print(maxi)
