@@ -34,16 +34,16 @@ def in_range(x,y) :
 maxi = -sys.maxsize
 for i in range(1,n+1) :
     for j in range(4) :
-        if not in_range(i-1,j-1) :
-            continue 
+        if  in_range(i-1,j-1) and dp[i-1][j-1] != INT_MIN  :
+            # continue 
         # print(i,j)
-        dp[i][j] = max(dp[i-1][j-1] + grid[i], dp[i][j])
+            dp[i][j] = max(dp[i-1][j-1] + grid[i], dp[i][j])
 
-        if not in_range(i-2,j) :
-            continue
-
-        dp[i][j] = max(dp[i-2][j] + grid[i], dp[i][j])
+        if  in_range(i-2,j) and dp[i-2][j] != INT_MIN :
+            dp[i][j] = max(dp[i-2][j] + grid[i], dp[i][j])
 
         maxi = max(maxi, dp[i][j])
 
+
+# print(dp)
 print(maxi)
