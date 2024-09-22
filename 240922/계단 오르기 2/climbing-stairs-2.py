@@ -12,10 +12,10 @@ for j in range(4):
     dp[0][j] = 0
 
 def odd_in_range(x, y):
-    return 0 <= x <= n and 0 <= y < 3
+    return 0 <= x < n and 0 <= y < 3
 
 def even_in_range(x, y):
-    return 0 <= x <= n and 0 <= y < 4
+    return 0 <= x < n and 0 <= y < 4
 
 maxi = INT_MIN
 for i in range(1, n + 1):
