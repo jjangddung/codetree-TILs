@@ -8,8 +8,7 @@ grid = [0] + list(map(int, input().split()))
 dp = [[INT_MIN] * 4 for _ in range(n + 1)]
 
 # 초기값 설정
-for j in range(4):
-    dp[0][j] = 0
+dp[0][0] = 0
 
 maxi = INT_MIN
 for i in range(1, n + 1):
@@ -25,4 +24,5 @@ for i in range(1, n + 1):
         # 최대값 업데이트
         maxi = max(maxi, dp[i][j])
 
+# print(dp)
 print(maxi)
