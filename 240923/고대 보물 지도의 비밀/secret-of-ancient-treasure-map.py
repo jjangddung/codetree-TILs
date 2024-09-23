@@ -8,7 +8,7 @@ grid = [0] +  list(map(int, input().split()))
 # dp[i][j]  i개를 연속해서 골랐을 때, 음수의 개수가 j개일때의 최대값
 
 dp = [
-    [-1]*(3)
+    [-1]*(m+1)
     for _ in range(n+1)
 ]
 
