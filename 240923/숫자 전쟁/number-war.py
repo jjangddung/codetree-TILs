@@ -19,43 +19,29 @@ for i in range(n+1) :
 maxi = 0
 for i in range(1,n+1) :
     for j in range(1,n+1) :
-        if b[i-1] < a[j] :
-            if dp[i-1][j] == -1 :
-                continue
+
+        if a[j-1] == b[i] or b[i-1] == a[j] :
+            continue
+            
+        if b[i-1] <= a[j] :
             dp[i][j] = max(dp[i-1][j],dp[i][j])
-
-        elif b[i-1] == a[j] :
-            dp[i][j] =-1
-            continue
-
-        if b[i] > a[j-1] :
-            if dp[i][j-1] == -1 :
-                continue
-                
+        
+        if b[i]  >= a[j-1] :
             dp[i][j] = max(dp[i][j-1],dp[i][j])
-
-        elif b[i] == a[j-1] :
-            dp[i][j] = -1
-            continue
-
-        if b[i] < a[j] :
+        
+        dp[i][j] = max(dp[i-1][j-1],dp[i][j])
+        
+        if a[j] > b[i] :
+            
             dp[i][j] = dp[i][j] + b[i]
 
-            if i == n :
-                maxi = max(dp[i][j], maxi)
-            
-        elif b[i] > a[j] :
-            if j == n :
-                maxi = max(dp[i][j], maxi)
+            if i == n :  
+                maxi = max(maxi, dp[i][j])
         
         else :
-            if j == n or i == n :
-                maxi = max(dp[i][j], maxi)
+            if i==n or j  == n :
+                maxi = max(maxi, dp[i][j])
 
-        
-        
 
-    
+
 print(maxi)
-print(dp)
-#
