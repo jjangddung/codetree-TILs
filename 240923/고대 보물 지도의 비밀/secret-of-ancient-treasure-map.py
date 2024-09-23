@@ -17,8 +17,8 @@ dp[0][0] = 0
 
 maxi = -sys.maxsize
 for i in range(1,n+1) :
-    for j in range(3) :
-        for k in range(1,n+1-i): 
+    for j in range(m+1) :
+        for k in range(1,n+2-i): 
             new_lst = grid[k:i+k]
             count = 0
             result = 0
@@ -29,6 +29,7 @@ for i in range(1,n+1) :
             
             if count == j :
                 dp[i][j] = max(dp[i][j], result)
-            maxi = max(dp[i][j],maxi)
+                maxi = max(dp[i][j],maxi)
 
 print(maxi)
+# print(dp)
