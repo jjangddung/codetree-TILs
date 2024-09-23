@@ -8,12 +8,12 @@ check_lst = [
 ]
 
 
-prev_x, prev_y = check_lst[0][0], check_lst[0][1]
+
 mini = sys.maxsize
 
 for i in range(1,n-1) :
     distance= 0
-
+    prev_x, prev_y = check_lst[0][0], check_lst[0][1]
     for j in range(n) :
         if i == j :
             continue
