@@ -11,12 +11,19 @@ grid = [
 count = 0
 start = grid[0][0]
 end = grid[n-1][m-1]
-for i in range(1,n-2) :
-    for j in range(1,m-2) :
-        for k in range(i+1,n-1):
-            for l in range(j+1,m-1) :
-                if grid[i][j] != start :
-                    if grid[k][l] == start :
-                        count +=1
 
-print(count)
+if start == end :
+    print(0)
+
+else :
+
+    for i in range(1,n-2) :
+        for j in range(1,m-2) :
+            for k in range(i+1,n-1):
+                for l in range(j+1,m-1) :
+                    if grid[i][j] != start :
+                        if grid[k][l] == start :
+                            
+                            count +=1
+    
+    print(count)
