@@ -1,30 +1,23 @@
 import sys
-import copy
-
+import heapq
 
 input = sys.stdin.readline
 
-
 n = int(input())
-
 lst = list(map(int, input().split()))
 
+# 최소 힙으로 변환
+heapq.heapify(lst)
 
-
-value = 0
 result = 0
-new_lst = copy.deepcopy(lst)
 
-# print(new_lst)
-while len(new_lst) > 1 :
-    new_lst = sorted(new_lst)
-    # print(new_lst)
-    value = new_lst[0] + new_lst[1]
-    result  += value
-    new_lst = [value] +new_lst[2:]
-    # print(new_lst)
+while len(lst) > 1:
+    # 가장 작은 두 값을 꺼내서 더함
+    value1 = heapq.heappop(lst)
+    value2 = heapq.heappop(lst)
+    value = value1 + value2
+    result += value
+    # 더한 값을 다시 힙에 넣음
+    heapq.heappush(lst, value)
 
-
-
-if len(new_lst) == 1 :
-    print(result)
+print(result)
