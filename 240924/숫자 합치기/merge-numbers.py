@@ -2,7 +2,7 @@ import sys
 import copy
 
 
-
+input = sys.stdin.readline
 
 
 n = int(input())
