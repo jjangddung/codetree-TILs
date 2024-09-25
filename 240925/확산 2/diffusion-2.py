@@ -81,22 +81,20 @@ for i in range(n) :
 
 # s_lst = []
 
-for i in range(n) :
-    for j in range(m) :
-        if step[i][j] == -1 and grid[i][j] != -1 :
-            count -=1
-            break
-    if count != 0 :
-        break
+def checking() :
+    for i in range(n) :
+        for j in range(m) :
+            if step[i][j] == -1 and grid[i][j] != -1 :
+                return False
+    
+    return True
+
+
     
 
 
-# print(minus_lst)
-if count == 0 :
+if checking() :
     print(maxi)
 
 else :
     print(-1)
-
-# for s in step :
-    # print(*s)
