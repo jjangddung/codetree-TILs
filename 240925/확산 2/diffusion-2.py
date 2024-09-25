@@ -75,18 +75,23 @@ maxi = -sys.maxsize
 count = 0
 for i in range(n) :
     for j in range(m) :
-        new = 0
+        # new = 0
         maxi = max(step[i][j], maxi)
-        if grid[i][j] == -1 :
-            for v in minus_lst :
-                x,y = v
-                if x == i and y == j :
-                    new = 1
-                    break
-        if new == 0  :
-            count -=1
-                
 
+
+# s_lst = []
+
+for i in range(n) :
+    for j in range(m) :
+        if step[i][j] == -1 and grid[i][j] != -1 :
+            count -=1
+            break
+    if count != 0 :
+        break
+    
+
+
+# print(minus_lst)
 if count == 0 :
     print(maxi)
 
@@ -94,4 +99,4 @@ else :
     print(-1)
 
 # for s in step :
-#     print(*s)
+    # print(*s)
