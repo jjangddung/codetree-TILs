@@ -34,7 +34,7 @@ for i in range(t) :
         print(s[-1], s[0])
     
     elif len(s) == 1 :
-        print(s[0])
+        print(s[0],s[0])
     
     else :
         print("EMPTY")
