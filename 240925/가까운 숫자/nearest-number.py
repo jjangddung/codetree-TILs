@@ -14,25 +14,26 @@ mini = sys.maxsize
 i = 0
 
 for g in grid :
-    s.add(g)
+    
 
     if i == 0 :
+        s.add(g)
         mini = s[1] - s[0]
     
     else :
         index1 = s.bisect_right(g)
-        index2 = index1 - 2
+        # index2 = index1 - 1
 
-        if index1 < len(s) and  0< index2 : 
-            result = min(abs(s[index1]- g), abs(s[index2] - g))
+        if 0 < index1 < len(s) : 
+            result = min(abs(s[index1]- g), abs(s[index1-1] - g))
         
-        elif 0 < index2 :
-            result = abs(s[index2]-g)
+        elif index1 == len(s) :
+            result = abs(s[index1-1]-g)
         
-        elif index1 < len(s) :
+        elif index1 == 0 :
             result = abs(s[index1]-g)
 
         mini = min(result,mini)
-    
+        s.add(g)
     print(mini)
     i +=1
