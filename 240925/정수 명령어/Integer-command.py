@@ -25,16 +25,12 @@ for i in range(t) :
                 else :
                     if len(s) != 1 :
                         s.remove(s[-1])
-                    else :
-                        s.remove(s[0])
         # print(s)
 
     
-    if len(s) > 1 :
+    if len(s) >= 1 :
         print(s[-1], s[0])
     
-    elif len(s) == 1 :
-        print(s[0],s[0])
     
     else :
         print("EMPTY")
