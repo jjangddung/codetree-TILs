@@ -10,32 +10,24 @@ grid = list(map(int, input().split()))
 
 # prev_length 랑 add한 length랑 비교 앉았는지 확인하기
 
-
-ans_lst = []
 maxi = 0
-
-def backtraking(num) :
-    global maxi
-    if num == n :
-        s = SortedSet()
-        prev_length = 0
-        for v in ans_lst :
-            s.add(v)
-            if prev_length == len(s) :
-                maxi = max(len(s),maxi)
-                return 
+s =  SortedSet()
+count = 0
+for i in range(n) :
+    t= grid[i]
+    while True :
+        if t == 0   :
+            maxi = max(len(s),maxi)
+            count +=1
+            break
+        if t not in s :
+            s.add(t)
+            break
         
-        maxi = max(len(s),maxi)
-
-        return 
-
-
+        else :
+            t -=1
     
-    for i in range(1,grid[num] +1 ) :
-        ans_lst.append(i)
-        backtraking(num+1)
-        ans_lst.pop()
+    if count != 0 :
+        break
 
-
-backtraking(0)
-print(maxi)
+print(len(s))
