@@ -3,12 +3,9 @@ from sortedcontainers import SortedSet
 
 n,m = map(int, input().split())
 
-# s = SortedSet()
-
-
 grid = list(map(int, input().split()))
 
-# prev_length 랑 add한 length랑 비교 앉았는지 확인하기
+
 
 maxi = 0
 s =  SortedSet()
@@ -29,5 +26,6 @@ for i in range(n) :
     
     if count != 0 :
         break
+    maxi = max(len(s),maxi)
 
-print(len(s))
+print(maxi)
