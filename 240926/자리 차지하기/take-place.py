@@ -8,7 +8,7 @@ grid = list(map(int, input().split()))
 
 
 maxi = 0
-s =  SortedSet()
+s =  set()
 # count = 0
 for i in range(n) :
     t= grid[i]
