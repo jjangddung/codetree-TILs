@@ -8,11 +8,11 @@ grid = list(map(int, input().split()))
 
 
 maxi = 0
-s =  set()
+s =  SortedSet()
 # count = 0
 for i in range(n) :
     t= grid[i]
-    while t >  0 and t  in s : 
+    while t >  0 and s.bisect_left(t) != 0 and  s.bisect_left(t) != len(s)  : 
         t -=1
 
     if t == 0 :
