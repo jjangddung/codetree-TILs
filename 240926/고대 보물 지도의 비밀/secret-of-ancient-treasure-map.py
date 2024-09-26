@@ -30,12 +30,18 @@ maxi = inf
 
 for i in range(1,n+1) :
     for j in range(k+1) :
-        if grid[i] >= 0   and dp[i-1][j] != inf:
-            dp[i][j] = max(dp[i-1][j] + grid[i], dp[i][j])
+        if grid[i] >= 0   :
+            if  j == 0 :
+                dp[i][j] = max(grid[i],dp[i][j])
+            if dp[i-1][j] != inf :
+                dp[i][j] = max(dp[i-1][j] + grid[i], dp[i][j])
         
         if grid[i] < 0 and j >= 1 and dp[i-1][j-1] != inf :
             dp[i][j] = max(dp[i-1][j-1] + grid[i], dp[i][j] )
+            # dp[i][j] = max(grid[i])
         
         maxi = max(dp[i][j], maxi)
 
 print(maxi)
+
+print(dp)
