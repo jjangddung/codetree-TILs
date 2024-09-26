@@ -9,23 +9,18 @@ grid = list(map(int, input().split()))
 
 maxi = 0
 s =  SortedSet()
-count = 0
+# count = 0
 for i in range(n) :
     t= grid[i]
-    while True :
-        if t == 0   :
-            maxi = max(len(s),maxi)
-            count +=1
-            break
-        if t not in s :
-            s.add(t)
-            break
-        
-        else :
-            t -=1
-    
-    if count != 0 :
+    while t >  0 and t  in s : 
+        t -=1
+
+    if t == 0 :
+        maxi = max(len(s),maxi)
         break
-    maxi = max(len(s),maxi)
+    
+    else :
+        s.add(t)
+        maxi = max(len(s),maxi)
 
 print(maxi)
