@@ -21,6 +21,9 @@ for i in range(n) :
         result = abs(grid[i] -grid[j])
 
         if result >= m :
+            if result == m :
+                s.add(result)
+                break
             s.add(result)
 
 
