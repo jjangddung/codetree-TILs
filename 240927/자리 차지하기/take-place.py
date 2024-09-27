@@ -1,20 +1,28 @@
-n, m = map(int, input().split())
-grid = list(map(int, input().split()))
+from sortedcontainers import SortedSet
 
-parent = {}
 
-def find(x):
-    if x not in parent:
-        return x
-    parent[x] = find(parent[x])
-    return parent[x]
+n,m = map(int, input().split())
 
-count = 0
-for t in grid:
-    p = find(t)
-    if p == 0:
-        continue
-    parent[p] = p - 1
-    count += 1
+arr = list(map(int, input().split()))
 
-print(count)
+
+# 빈자리에 대해 sortedset
+
+seats = SortedSet(range(1,m+1))
+
+ans = 0
+
+
+for elem in arr :
+    idx = seats.bisect_right(elem) # elem 보다  더 큰 수의 index 출력
+
+
+    if idx != 0 :
+        idx -=1 
+        seats.remove(seats[idx])
+
+        ans+=1
+    else :
+        break
+
+print(ans)
