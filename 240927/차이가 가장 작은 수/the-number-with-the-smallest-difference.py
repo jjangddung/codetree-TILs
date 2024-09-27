@@ -12,8 +12,8 @@ for _ in range(n) :
     s.add(int(input()))
 
 
-
-mini = sys.maxsize
+inf = sys.maxsize
+mini = inf
 
 for v in s :
     std = v + m
@@ -29,4 +29,8 @@ for v in s :
 
     mini = min(result, mini)
 
-print(mini)
+if mini == inf :
+    print(-1)
+
+else :
+    print(mini)
