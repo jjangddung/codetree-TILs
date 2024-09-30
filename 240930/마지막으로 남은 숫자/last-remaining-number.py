@@ -21,7 +21,8 @@ while len(pq) > 1 :
     num3 = num1-num2
     heapq.heappop(pq)
     heapq.heappop(pq)
-    heapq.heappush(pq,-num3)
+    if num3 != 0 :
+        heapq.heappush(pq,-num3)
 
 
 
