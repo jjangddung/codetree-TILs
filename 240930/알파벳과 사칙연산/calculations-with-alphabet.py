@@ -61,8 +61,11 @@ def backtracking(num,k) :
             return 
 
         for i in range(1, len(real_lst)) :
-            result_lst.append(math_lst[i-1])
-            result_lst.append(real_lst[i])
+            try :
+                result_lst.append(math_lst[i-1])
+                result_lst.append(real_lst[i])
+            except :
+                print(math_lst, real_lst)
         
         value = 0
         for i in range(0,len(result_lst),2) :
