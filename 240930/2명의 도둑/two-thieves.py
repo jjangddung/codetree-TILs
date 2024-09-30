@@ -52,17 +52,17 @@ def maxi(lst) :
 
     for i in range(1,length+1) :
         for j in range(1,c+1) :
-            # print(lst)
+
             if j - lst[i-1] < 0 :
                 continue
-            if dp[i-1][j-lst[i-1]] != inf :
-                dp[i][j] =  max(dp[i-1][j-lst[i-1]] + lst[i-1]**2 , dp[i][j])
-            
-            if dp[i-1][j] != inf :
-                dp[i][j] = max(dp[i-1][j], dp[i][j])
+
+            for t in range(i) :
+                if dp[t][j-lst[i-1]] != inf :
+                    dp[i][j] = max(dp[t][j-lst[i-1]] + lst[i-1]**2,dp[i][j])
             
             result = max(result, dp[i][j])
-
+    # print(dp)
+    # print(result)
 
     return result        
 
@@ -96,8 +96,12 @@ def backtracking(num,k) :
             # print(lst1, lst2)
 
             result = maxi(lst1) + maxi(lst2)
+# 
+            # if fisrt_v == 0 and second_v == 13 :
+                # print(lst1, lst2)
+                # print(maxi(lst1), maxi(lst2))
             # print(result)
-
+# 
             maximum = max(result, maximum)
 
                 
@@ -110,4 +114,9 @@ def backtracking(num,k) :
     backtracking(num+1,k)
 
 backtracking(0,0)
+
 print(maximum)
+
+# test = [5,7,5]
+# result= maxi(test)
+# print(result)
