@@ -1,12 +1,6 @@
 import sys
 
-# 가치는 = 무게*무게
-# 사실상   주어진 것들 중에 두개 고르는 문제임 
-# 범위는  r >>> 0 < < n
-#         c >>>  0 << n-1
-# 수로 표현을 하자 >>>>> n*n
-# 최댓값은 어떻게 표현 ?? dp를 이용해서 접근하기
-# dp[i][j] i번째를 포함했을 때 , j의 무게면서 최대 value
+
 
 
 input = sys.stdin.readline
@@ -21,9 +15,6 @@ grid = [
     for _ in range(n)
 ]
 
-
-# n = 3
-# k = 2
 
 def in_range(x,y) :
     return 0 <=x < n and 0 <= y < n
@@ -79,6 +70,9 @@ ans_lst = []
 maximum = -sys.maxsize
 def backtracking(num,k) :
     global maximum
+
+    if num > n*n :
+        return 
     
     if num == n*n :
         if k == 2 :
@@ -123,7 +117,3 @@ def backtracking(num,k) :
 backtracking(0,0)
 
 print(maximum)
-
-# test = [5,7,5]
-# result= maxi(test)
-# print(result)
