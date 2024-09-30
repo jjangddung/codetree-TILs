@@ -1,9 +1,9 @@
 import sys
 
-# input= sys.stdin.readline
+input= sys.stdin.readline
 
 # 그냥 값을 미리 지정하기 
-given = str(input())
+given = str(input().rstrip())
 word_lst =[]
 math_lst = []
 
