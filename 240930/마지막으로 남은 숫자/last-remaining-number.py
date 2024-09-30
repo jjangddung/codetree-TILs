@@ -23,4 +23,10 @@ while len(pq) > 1 :
     heapq.heappop(pq)
     heapq.heappush(pq,-num3)
 
-print(-pq[0])
+
+
+if len(pq) == 0 :
+    print(-1)
+
+else :
+    print(-pq[0])
