@@ -46,7 +46,7 @@ def maxi(lst) :
         for v in lst :
             total += v**2
     
-    return total
+        return total
 
     length = len(lst)
     dp = [
