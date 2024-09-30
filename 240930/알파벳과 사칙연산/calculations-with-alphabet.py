@@ -57,7 +57,7 @@ def backtracking(num,k) :
 
         if len(math_lst) == 0 :
             value = int(real_lst[0])
-            maxi = max(value, result)
+            maxi = max(value, maxi)
             return 
 
         for i in range(1, len(word_lst)) :
