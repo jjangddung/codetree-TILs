@@ -55,17 +55,9 @@ def backtracking(num,k) :
         
         result_lst.append(real_lst[0])
 
-        if len(math_lst) == 0 :
-            value = int(real_lst[0])
-            maxi = max(value, maxi)
-            return 
-
-        for i in range(1, len(real_lst)) :
-            try :
-                result_lst.append(math_lst[i-1])
-                result_lst.append(real_lst[i])
-            except :
-                return 
+        for i in range(1, len(word_lst)) :
+            result_lst.append(math_lst[i-1])
+            result_lst.append(real_lst[i])
         
         value = 0
         for i in range(0,len(result_lst),2) :
@@ -93,9 +85,5 @@ def backtracking(num,k) :
         backtracking(elem,k+1)
         ans_lst.pop()
 
-if len(given) == 1:
-    print(4)
-
-else :
-    backtracking(1,0)
-    print(maxi)
+backtracking(1,0)
+print(maxi)
