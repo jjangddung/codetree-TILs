@@ -90,5 +90,9 @@ def backtracking(num,k) :
         backtracking(elem,k+1)
         ans_lst.pop()
 
-backtracking(1,0)
-print(maxi)
+if len(given) == 1:
+    print(4)
+
+else :
+    backtracking(1,0)
+    print(maxi)
