@@ -41,6 +41,13 @@ def overlap(one_r,third_r,one_e, second_s, second_e) :
 
 
 def maxi(lst) :
+    total = 0 
+    if sum(lst) <= c :
+        for v in lst :
+            total += v**2
+    
+    return total
+
     length = len(lst)
     dp = [
         [inf] *(c+1)
@@ -80,9 +87,9 @@ def backtracking(num,k) :
             value = 0
 
             one_r, one_c = fisrt_v//n, fisrt_v%n # 첫번째 리스트 시작점
-            second_r, second_c = one_r, one_c +m-1  # 첫번째 리스트 끝점
+            second_c = one_c +m-1  # 첫번째 리스트 끝점
             third_r, third_c = second_v//n, second_v% n # 두 번째 리스트 시작점
-            four_r, four_c = third_r , third_c +m-1  # 두 번째 리스트 끝점
+            four_c =  third_c +m-1  # 두 번째 리스트 끝점
 
             if second_c >= n or four_c >= n :
                 return 
