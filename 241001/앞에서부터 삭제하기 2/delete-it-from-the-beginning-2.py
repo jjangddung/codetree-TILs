@@ -14,10 +14,10 @@ pq = []
 
 maxi = -sys.maxsize
 for k in range(1,n-1) :
-    new_grid = grid[k:]
+    # new_grid = grid[k:]
     pq = []
-    for g in new_grid :
-        heapq.heappush(pq,g)
+    for i in range(k,n) :
+        heapq.heappush(pq,grid[i])
     
     heapq.heappop(pq)
     result = sum(pq)/len(pq)
