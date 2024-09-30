@@ -61,7 +61,7 @@ def backtracking(num,k) :
         
         value = 0
         for i in range(0,len(result_lst),2) :
-            if i %2 == 0 :
+            if i  == 0 :
                 value += int(result_lst[i])
                 continue
             
@@ -76,7 +76,6 @@ def backtracking(num,k) :
 
         
         maxi = max(value, maxi)
-
 
         return 
 
