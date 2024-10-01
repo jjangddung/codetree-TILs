@@ -24,6 +24,9 @@ for i in range(1,n+1) :
 
         if j == 1 :
             prefix_sum[i][j] = grid[i-1]
+            if prefix_sum[i][j] == m :
+                count+=1
+            continue
         if prefix_sum[i-1][j-1]  == inf :
             continue
 
