@@ -1,38 +1,24 @@
-import heapq
-
-
-
-import sys
-
 n = int(input())
+arr = [0] + list(map(int, input().split()))
 
-grid = list(map(int, input().split()))
+# 왼쪽에서부터 누적합을 계산 => O(N)
+prefix = [0 for _ in range(n+1)]
+for i in range(1, n+1):
+    prefix[i] = prefix[i-1] + arr[i]
 
-grid = grid[::-1]
+# 오른쪽에서부터 최소값을 기록 => O(N)
+temp = 10_001
+postfix = [0 for _ in range(n+1)]
+for i in range(n, -1, -1):
+    postfix[i] = min(temp, arr[i])
+    temp = postfix[i]
 
-# pq = []
+total = sum(arr)
+ans = 0
+# 왼쪽부터 k개 원소를 삭제 => O(N)
+for k in range(1, n-1):
+    summation = total - prefix[k] - postfix[k+1]
+    avg = summation / (n-k-1)
+    ans = max(ans, avg)
 
-maxi = -sys.maxsize
-prev_sum = grid[0] + grid[1]
-prev_small = min(grid[0],grid[1])
-
-new_grid = [grid[0], grid[1]]
-pq = sorted(new_grid)
-
-# print(new_grid)
-maxi = (prev_sum - prev_small)/1
-# print(maxi)
-for k in range(2,n-1) :
-    heapq.heappush(pq, grid[k])
-    # print("pq: ", pq)
-    num = heapq.heappop(pq)
-    # print('num: ', num)
-    result = sum(pq)/(k)
-    # print(result)
-    heapq.heappush(pq, num)
-    maxi = max(result,maxi)
-    
-
-
-
-print(f'{maxi:.2f}')
+print('{:.2f}'.format(ans))
