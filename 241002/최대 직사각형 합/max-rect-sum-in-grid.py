@@ -36,7 +36,7 @@ for i in range(1,n+1) :
         prefix_sum[i][j] = prefix_sum[i-1][j] + prefix_sum[i][j-1] + grid[i-1][j-1] - prefix_sum[i-1][j-1]
 
 
-result = 0
+result = -sys.maxsize
 
 
 # for p in prefix_sum :
