@@ -78,8 +78,7 @@ for left in range(1,n+1) :
     temp = [0]* (n+1)
     for right in range(left, n+1) :
         for row in range(1,n+1) :
-            # temp[row] += (prefix_sum[row][right] - prefix_sum[row][left-1])
-            temp[row] = (prefix_sum[row][right] )
+            temp[row] = (prefix_sum[row][right]-prefix_sum[row][left-1])
 
         
         # print(temp)
@@ -91,32 +90,3 @@ for left in range(1,n+1) :
 
 
 print(result)
-        
-
-
-
-
-
-
-
-
-
-# for p in prefix_sum :
-    # print(*p)
-
-# for x1 in range(1,n+1) :
-    # for y1 in range(1,n+1) :
-        # for x2 in range(x1,n+1) :
-            # for y2 in range(y1,n+1) :
-                # value = prefix_sum[x2][y2] -\
-                        # prefix_sum[x2][y1-1] -\
-                        # prefix_sum[x1-1][y2] +\
-                        # prefix_sum[x1-1][y1-1]
-# 
-# 
-                # value -= (1001)*(x2-x1+1)*(y2-y1+1)
-                ##if value == 900 :
-                ##    print(f'x1: {x1} , y1 : {y1}, x2:{x2}, y2:{y2}, value: {value}') 
-                # result = max(result,value)
-# 
-# print(result)
