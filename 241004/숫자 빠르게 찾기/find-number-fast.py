@@ -7,7 +7,7 @@ arr = list(map(int, input().split()))
 for i in range(m):
     target  = int(input())
     left, right = 0 , n-1
-    idx =-1
+    idx =-2
 
     while left <= right :
         mid = (left + right)//2
@@ -20,4 +20,4 @@ for i in range(m):
         
         else :
             left  = mid  +1
-    print(idx)
+    print(idx-1)
