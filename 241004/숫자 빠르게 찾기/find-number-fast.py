@@ -7,12 +7,14 @@ arr = list(map(int, input().split()))
 for i in range(m):
     target  = int(input())
     left, right = 0 , n-1
-    idx =-2
+    idx =-1
+    count =0
 
     while left <= right :
         mid = (left + right)//2
         if arr[mid] == target :
             idx = mid
+            count +=1
             break
         
         if arr[mid] > target :
@@ -20,4 +22,8 @@ for i in range(m):
         
         else :
             left  = mid  +1
-    print(idx-1)
+
+    if count == 0 :
+        print(-1)
+    else :
+        print(idx+1)
