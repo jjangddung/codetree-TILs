@@ -19,14 +19,5 @@ for num in nums:
 for _ in range(q):
     s, e = map(int, input().split())
 
-    if s not in mapper:
-        nums.add(s)
-        mapper[s] = cnt
-        cnt += 1
-
-    if e not in mapper:
-        nums.add(e)
-        mapper[e] = cnt
-        cnt += 1
 
     print(mapper[e] - mapper[s] + 1)
