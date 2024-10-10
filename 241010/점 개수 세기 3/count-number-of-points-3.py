@@ -5,15 +5,14 @@ n,q = map(int, input().split())
 
 
 points = list(map(int, input().split()))
-
-
+nums = SortedSet()
+for p in points :
+        nums.add(p)
+        
 for _ in range(q) :
-
-    nums = SortedSet()
     mapper = dict()
     cnt = 1
-    for p in points :
-        nums.add(p)
+    
     s , e = map(int, input().split())
 
     nums.add(s)
