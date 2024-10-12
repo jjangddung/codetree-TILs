@@ -14,13 +14,13 @@ for  i in range(length) :
     if order[i] == 'L' :
         direct -=1
         if direct < 0 :
-            direct == 3
+            direct = 3
     
     elif order[i] == 'R' :
         direct +=1
 
         if direct > 3 :
-            direct == 0
+            direct = 0
     
     else :
         x,y = x+ dxs[direct] , y +dys[direct]
