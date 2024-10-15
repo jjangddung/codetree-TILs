@@ -23,4 +23,6 @@ for i in range(n) :
                 grid[v] = 0
 
 
+if sum(grid) != 0 :
+    count +=1
 print(count)
