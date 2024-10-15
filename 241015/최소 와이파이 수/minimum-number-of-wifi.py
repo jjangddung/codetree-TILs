@@ -12,15 +12,11 @@ grid = list(map(int, input().split()))
 
 
 count  = 0
-for i in range(n) :
+for i in range(n-m) :
     if i-m >= 0  and grid[i-m] == 1 :
         count +=1
-        if i + m + 1 >= n :
-            for v in range(i-m,n) :
-                grid[v] = 0
-        else :
-            for v in range(i-m,i+m+1) :
-                grid[v] = 0
+        for v in range(i-m,i+m+1) :
+            grid[v] = 0
 
 
 if sum(grid) != 0 :
