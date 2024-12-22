@@ -11,7 +11,7 @@ def function(last_value,num_list) :
 
     for a in range(1,last_value) :
         for b in range(a, last_value) :
-            for c in range(b, last_value) :
+            for c in range(b, a+b+1) :
                 for d in range(c, last_value) :
                     new_list = []
                     new_list = [a,b,c,d,a+b,b+c,c+d,d+a,a+c,b+d,a+b+c,a+b+d,a+c+d,b+c+d,a+b+c+d]
