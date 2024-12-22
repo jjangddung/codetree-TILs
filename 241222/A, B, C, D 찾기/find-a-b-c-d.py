@@ -11,11 +11,9 @@ b = num_list[1]
 c = num_list[2]
 
 def function(last_value,num_list) :
+    d = last_value - a-b-c
 
-    for d in range(c, last_value) :
-        if a+b+c+d == last_value :
-            print(a,b,c,d)
-            return 
+    print(a,b,c,d)
     return
 
 function(last_value,num_list)
